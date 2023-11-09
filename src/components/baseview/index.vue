@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { onMounted, ref, defineProps, withDefaults } from 'vue';
 import bg from '@/assets/img/base/bg.png'
-import logo from '@/assets/img/logo.png'
+import logo from '@/assets/img/login/logo.png'
 type IProps = {
   img?: string;
   showBg?: boolean;

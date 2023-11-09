@@ -16,6 +16,7 @@
           <input class="uni-input text-[#FFFFFFFF] text-xs px-4 " type="text" focus placeholder="自动获得焦点" />
           <view class="border-[#ffffff19] border-b h-[1px]"></view>
           <input type="text" class="uni-input text-[#FFFFFFFF] text-xs px-4" placeholder="自动获得焦点" password />
+          <span class="iconify" data-icon="heroicons:eye-20-solid" data-inline="false"></span>
 
         </view>
         <view class="flex flex-row items-center justify-center h-10">
@@ -32,10 +33,11 @@
 </template>
 
 <script setup lang="ts">
-import logo from '@/assets/img/logo.png'
-import bg from '@/assets/img/bg.png'
+import logo from '@/assets/img/login/logo.png'
+import bg from '@/assets/img/login/bg.png'
 import { useI18n } from 'vue-i18n';
 import baseView from '@/components/baseview/index.vue'
+// import { EyeIcon } from '@heroicons/vue/20/solid'
 
 const { t } = useI18n()
 const showPassword = ref(false)
