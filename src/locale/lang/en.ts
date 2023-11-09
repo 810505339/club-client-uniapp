@@ -10,5 +10,14 @@ export default {
     text2: 'sheet',
     text3: 'Start scanning the code',
     text4: 'Write off records',
+  }, dashboard: {
+    text: 'dashboard',
+    text1: 'Pending orders',
+    text2: 'Spelling Bureau Review',
+    text3: 'Broadcast applications',
+    text4: 'Refund review',
+    text5: 'Coupon review',
+    tag: 'piece',
+    tag1: 'strip'
   }
 };

@@ -1,17 +1,19 @@
 <template>
-  <view class="h-[100vh] w-[100vw] relative">
-    <image :src="img" class="absolute -z-10 inset-0" v-if="showBg" />
+  <view class="h-[100vh] w-[100vw] relative bg-[#0b0b0b] overflow-scroll">
+   <view class="h-[100vh] w-[100vw] fixed">
+    <image :src="img" class="absolute z-10 inset-0" v-if="showBg" />
+   </view>
     <!-- 自定义导航栏 -->
-    <view :style="{ paddingTop: statusBarHeight + 'px' }">
+    <view :style="{ marginTop: statusBarHeight + 'px' }" class="h-12">
       <!-- 真正的导航栏内容 -->
-      <view class="h-12 flex items-center w-full">
-        <view class="w-[61px] h-[32px] mx-2.5" v-if="showLogo">
-          <image :src="logo" />
+      <view class="h-12 flex items-center w-full fixed">
+        <view class="w-[61px] h-[32px] mx-2.5 relative z-40" v-if="showLogo">
+          <image :src="logo" mode="heightFix" />
         </view>
         <slot name="navBar" />
       </view>
     </view>
-    <view class="flex-auto w-full">
+    <view class="flex-auto w-full absolute z-20 ">
       <slot />
       <!-- <custom-tab-bar direction="horizontal" :show-icon="false" :selected="selected" @onTabItemTap="onTabItemTap" /> -->
     </view>

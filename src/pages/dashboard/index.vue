@@ -1,11 +1,28 @@
 <template>
   <base-view>
-    <view>
-      
+    <view class="p-5">
+      <text class="text-xl text-white">{{ t('dashboard.text') }}</text>
+      <view>
+        <view v-for="item in list" :key="item.id" class="relative  h-[115px] flex justify-between items-center p-5 my-2.5">
+          <image :src="item.box" class="absolute inset-0 -z-10" />
+          <view :style="{ color: item.color }" class="h-full flex flex-col justify-between">
+            <view class="font-bold">{{ t(item.text) }}</view>
+            <view ><text class="font-bold text-5xl">{{ item.value }}</text> {{ t(item.tag) }}</view>
+          </view>
+          <view class="w-[32px] h-[32px]">
+            <image :src="item.btn" />
+          </view>
+        </view>
+      </view>
     </view>
   </base-view>
 </template>
 
 <script setup lang="ts">
 import baseView from '@/components/baseview/index.vue'
+import { useI18n } from 'vue-i18n';
+import useData from './hooks/usedata'
+const { t } = useI18n()
+const { list } = useData()
+
 </script>
