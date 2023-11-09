@@ -9,29 +9,23 @@
       <view
         class="bg-[#389f2bb1] h-16 w-16 rounded-[20rpx] text-white flex justify-center items-center after:content-['hover']"
         hover-class="!bg-[gray] after:!content-['good!']"></view>
-      <view
-        class="grid grid-cols-3 divide-x-[10px] divide-[#010101] divide-solid">
+      <view class="grid grid-cols-3 divide-x-[10px] divide-[#010101] divide-solid">
         <div :class="classArray">1</div>
         <div>2</div>
         <div :class="classArray">3</div>
       </view>
-      <view
-        class="w-32 py-2 rounded-md font-semibold text-white bg-pink-500 ring-4 ring-pink-300 text-center">
+      <view class="w-32 py-2 rounded-md font-semibold text-white bg-pink-500 ring-4 ring-pink-300 text-center">
         Default
       </view>
       <view>
-        <button
-          class="text-[#fff] w-64"
-          :class="buttonClass"
-          @click="increment">
+        <button class="text-[#fff] w-64" :class="buttonClass" @click="increment">
           click here to inc {{ count }}
         </button>
       </view>
 
       <view class="test">@apply</view>
       <view>
-        <view
-          class="ifdef-[MP-WEIXIN]:bg-blue-500 ifndef-[MP-WEIXIN]:bg-red-500">
+        <view class="ifdef-[MP-WEIXIN]:bg-blue-500 ifndef-[MP-WEIXIN]:bg-red-500">
           样式的条件编译:微信小程序为蓝色，不是微信小程序为红色
         </view>
 
@@ -48,59 +42,59 @@
 </template>
 
 <script setup lang="ts">
-import WeappTailwindcss from '@/components/WeappTailwindcss.vue'
-import { useCounterStore } from '@/stores/counter'
+import WeappTailwindcss from "@/components/WeappTailwindcss.vue";
+import { useCounterStore } from "@/stores/counter";
 
-const store = useCounterStore()
-const { count } = storeToRefs(store)
-const { increment } = store
+const store = useCounterStore();
+const { count } = storeToRefs(store);
+const { increment } = store;
 const buttonColors = [
-  'bg-[#000]',
-  'bg-[#111]',
-  'bg-[#222]',
-  'bg-[#333]',
-  'bg-[#444]',
-  'bg-[#555]',
-  'bg-[#666]',
-  'bg-[#777]',
-  'bg-[#888]',
-  'bg-[#999]',
-  'bg-[#aaa]',
-  'bg-[#bbb]',
-  'bg-[#ccc]',
-  'bg-[#ddd]',
-  'bg-[#eee]',
-  'bg-[#fff]'
-]
-const title = ref('Hello')
-const themeRef = ref(uni.getSystemInfoSync().theme)
+  "bg-[#000]",
+  "bg-[#111]",
+  "bg-[#222]",
+  "bg-[#333]",
+  "bg-[#444]",
+  "bg-[#555]",
+  "bg-[#666]",
+  "bg-[#777]",
+  "bg-[#888]",
+  "bg-[#999]",
+  "bg-[#aaa]",
+  "bg-[#bbb]",
+  "bg-[#ccc]",
+  "bg-[#ddd]",
+  "bg-[#eee]",
+  "bg-[#fff]",
+];
+const title = ref("Hello");
+const themeRef = ref(uni.getSystemInfoSync().theme);
 const classArray = computed(() => [
-  title.value ? 'bg-[#ff00ff]' : undefined,
+  title.value ? "bg-[#ff00ff]" : undefined,
   {
-    'text-[#00ffff]': Boolean(title),
+    "text-[#00ffff]": Boolean(title),
     "bg-[url('https://xxx.com/xx.webp')]": true,
-    "bg-[url('https://yyyy.com/ccc.webp')]": true
-  }
-])
+    "bg-[url('https://yyyy.com/ccc.webp')]": true,
+  },
+]);
 const buttonClass = computed(() => {
-  return buttonColors[count.value % buttonColors.length]
-})
+  return buttonColors[count.value % buttonColors.length];
+});
 // #ifdef MP
-uni.onThemeChange(({ theme }: { theme: 'dark' | 'light' }) => {
-  themeRef.value = theme
-})
+uni.onThemeChange(({ theme }: { theme: "dark" | "light" }) => {
+  themeRef.value = theme;
+});
 // #endif
 onBeforeUnmount(() => {
   // #ifdef MP
   uni.offThemeChange(() => {
-    console.log('offThemeChange')
-  })
+    console.log("offThemeChange");
+  });
   // #endif
-})
+});
 
 onLoad(() => {
-  console.log('欢迎使用uni-app-vite-vue3-tailwindcss模板')
-})
+  console.log("欢迎使用uni-app-vite-vue3-tailwindcss模板");
+});
 </script>
 
 <style lang="scss" scoped>
