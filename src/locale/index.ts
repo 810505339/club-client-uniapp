@@ -4,7 +4,7 @@ import en from "./lang/en";
 import cn from "./lang/zh-cn";
 
 const i18n = createI18n({
-  locale: "en",
+  locale: "cn",
   allowComposition: true,
   messages: {
     en,

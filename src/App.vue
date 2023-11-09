@@ -14,4 +14,16 @@ onHide(() => {
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+uni-image {
+  width: 100% !important;
+  height: 100% !important;
+}
+image {
+  width: 100% !important;
+  height: 100% !important;
+}
+button::after {
+	 border: none !important;
+}
 </style>
