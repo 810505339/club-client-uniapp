@@ -19,6 +19,16 @@ export default {
       text5: '门票来源',
       text6: '核销备注',
       btn: '核销'
+    },
+    result:{
+      text:'核销结果',
+      text1:'核销成功!',
+      text2:'你成功核销',
+      text3:'张门票',
+      text4:'核销备注',
+      btn:'返回首页',
+      btn1:'继续核销',
+      
     }
 
   },

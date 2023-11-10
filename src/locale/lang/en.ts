@@ -19,7 +19,17 @@ export default {
       text5: 'Ticket source',
       text6: 'Write-off remarks',
       btn: 'Verification'
+    },
+    result:{
+      text:'Write-off results',
+      text1:'The write-off is successful!',
+      text2:'You have successfully cancelled',
+      text3:'tickets',
+      text4:'Write-off remarks',
+      btn:'Return to the top page',
+      btn1:'Continue to write-off',
     }
+
   }, dashboard: {
     text: 'dashboard',
     text1: 'Pending orders',

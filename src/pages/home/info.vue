@@ -33,13 +33,13 @@
         <view class=" flex items-center justify-between w-full h-14 px-5">
           <view class="flex items-center">
             <view class="w-6 h-6">
-              <image :src="btn1" />
+              <image :src="btn1" @click="state.number--" />
             </view>
             <view class="w-20 h-10 border border-[#ffffff3f] rounded-xl mx-2 text-[#ffffff] px-4">
-              <input type="number" class="w-full h-full"  />
+              <input type="number" class="w-full h-full" v-model="state.number" />
             </view>
             <view class="w-6 h-6">
-              <image :src="btn2" />
+              <image :src="btn2" @click="state.number++" />
             </view>
           </view>
           <button
@@ -75,6 +75,7 @@ const state = ref({
     { id: 4, label: 'home.info.text5', value: '11' },
     { id: 5, label: 'home.info.text5', value: '11' },
   ],
+  number: 0
 })
 
 onPageScroll((e) => {
