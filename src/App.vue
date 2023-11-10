@@ -8,6 +8,7 @@ onShow(() => {
 onHide(() => {
   console.log('App Hide')
 })
+
 </script>
 
 <style lang="scss">
@@ -19,11 +20,13 @@ uni-image {
   width: 100% !important;
   height: 100% !important;
 }
+
 image {
   width: 100% !important;
   height: 100% !important;
 }
+
 button::after {
-	 border: none !important;
+  border: none !important;
 }
 </style>

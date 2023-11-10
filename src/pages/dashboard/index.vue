@@ -4,7 +4,7 @@
       <text class="text-xl text-white">{{ t('dashboard.text') }}</text>
       <view>
         <view v-for="item in list" :key="item.id" class="relative  h-[115px] flex justify-between items-center p-5 my-2.5">
-          <image :src="item.box" class="absolute inset-0 -z-10" />
+          <image :src="item.box" mode="heightFix"  class="absolute inset-0 -z-10" />
           <view :style="{ color: item.color }" class="h-full flex flex-col justify-between">
             <view class="font-bold">{{ t(item.text) }}</view>
             <view ><text class="font-bold text-5xl">{{ item.value }}</text> {{ t(item.tag) }}</view>

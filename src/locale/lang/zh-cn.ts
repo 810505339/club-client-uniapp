@@ -10,6 +10,16 @@ export default {
     text2: '张',
     text3: '开始扫码',
     text4: '核销记录',
+    info: {
+      text: '门票信息',
+      text1: '区域',
+      text2: '卡座号',
+      text3: '门票数量',
+      text4: '下单时间',
+      text5: '门票来源',
+      text6: '核销备注',
+      btn: '核销'
+    }
 
   },
   dashboard: {

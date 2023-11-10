@@ -10,6 +10,16 @@ export default {
     text2: 'sheet',
     text3: 'Start scanning the code',
     text4: 'Write off records',
+    info: {
+      text: 'Ticket information',
+      text1: 'region',
+      text2: 'Deck number',
+      text3: 'Number of tickets',
+      text4: 'Time when the order was placed',
+      text5: 'Ticket source',
+      text6: 'Write-off remarks',
+      btn: 'Verification'
+    }
   }, dashboard: {
     text: 'dashboard',
     text1: 'Pending orders',

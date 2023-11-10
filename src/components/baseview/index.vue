@@ -1,13 +1,13 @@
 <template>
   <view class="h-[100vh] w-[100vw] relative bg-[#0b0b0b] overflow-scroll">
-   <view class="h-[100vh] w-[100vw] fixed">
-    <image :src="img" class="absolute z-10 inset-0" v-if="showBg" />
-   </view>
+    <view class="h-[100vh] w-[100vw] fixed">
+      <image :src="img" class="absolute z-10 inset-0" v-if="showBg" />
+    </view>
     <!-- 自定义导航栏 -->
     <view :style="{ marginTop: statusBarHeight + 'px' }" class="h-12">
       <!-- 真正的导航栏内容 -->
       <view class="h-12 flex items-center w-full fixed">
-        <view class="w-[61px] h-[32px] mx-2.5 relative z-40" v-if="showLogo">
+        <view class="h-8 mx-2.5 relative z-40" v-if="showLogo">
           <image :src="logo" mode="heightFix" />
         </view>
         <slot name="navBar" />
@@ -46,6 +46,11 @@ function onTabItemTap({ pagePath }: { pagePath: string }) {
 
 onMounted(() => {
   statusBarHeight.value = uni.getSystemInfoSync()['statusBarHeight']!;
+  uni.$on('onPageScroll', (data) => {
+    console.log('滚动', data);
+
+  })
 })
+
 
 </script>

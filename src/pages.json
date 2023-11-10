@@ -1,6 +1,8 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-	.
+		{
+			"path": "pages/home/info"
+		},
 		{
 			"path": "pages/home/index"
 		},
@@ -21,19 +23,16 @@
 		"list": [
 			{
 				"pagePath": "pages/home/index",
-				
 				"iconPath": "static/img/tabbar/icon.png",
 				"selectedIconPath": "static/img/tabbar/active_icon.png"
 			},
 			{
 				"pagePath": "pages/todo/index",
-			
 				"iconPath": "static/img/tabbar/icon_1.png",
 				"selectedIconPath": "static/img/tabbar/active_icon_1.png"
 			},
 			{
 				"pagePath": "pages/dashboard/index",
-				
 				"iconPath": "static/img/tabbar/icon_2.png",
 				"selectedIconPath": "static/img/tabbar/active_icon_2.png"
 			}
