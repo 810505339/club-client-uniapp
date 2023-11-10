@@ -3,10 +3,7 @@
     <view class="p-5">
       <view class="flex items-center justify-between">
         <text class="text-xl text-white">{{ t('home.text') }}</text>
-        <view class="flex items-center">
-          <text class="text-white opacity-75 text-xs  w-20 truncate">UserNameasdasdasdasdasdasdad</text>
-          <view class="h-8 w-8 bg-indigo-500 rounded-full"></view>
-        </view>
+        
       </view>
       <view class="relative h-24  box mt-5 flex items-center justify-end rounded-xl">
         <view class="absolute boxicon z-10 left-0 bottom-0">

@@ -1,13 +1,28 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/home/index"
+		},
+		{
+			"path": "pages/dashboard/order"
+		},
+		{
+			"path": "pages/dashboard/coupons"
+		},
+		{
+			"path": "pages/dashboard/fight"
+		},
+		{
+			"path": "pages/dashboard/radio"
+		},
+		{
+			"path": "pages/dashboard/refund"
+		},
+		{
 			"path": "pages/home/result"
 		},
 		{
 			"path": "pages/home/info"
-		},
-		{
-			"path": "pages/home/index"
 		},
 		{
 			"path": "pages/todo/index"
@@ -17,7 +32,8 @@
 		}
 	],
 	"globalStyle": {
-		"navigationStyle": "custom"
+		"navigationStyle": "custom",
+		"enablePullDownRefresh": true
 	},
 	"tabBar": {
 		"color": "#0B0B0B",
