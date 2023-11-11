@@ -4,21 +4,6 @@
 			"path": "pages/home/index"
 		},
 		{
-			"path": "pages/dashboard/order"
-		},
-		{
-			"path": "pages/dashboard/coupons"
-		},
-		{
-			"path": "pages/dashboard/fight"
-		},
-		{
-			"path": "pages/dashboard/radio"
-		},
-		{
-			"path": "pages/dashboard/refund"
-		},
-		{
 			"path": "pages/home/result"
 		},
 		{
@@ -29,11 +14,26 @@
 		},
 		{
 			"path": "pages/dashboard/index"
+		},
+		{
+			"path": "pages/dashboard/order"
+		},
+		{
+			"path": "pages/dashboard/radio"
+		},
+		{
+			"path": "pages/dashboard/coupons"
+		},
+		{
+			"path": "pages/dashboard/fight"
+		},
+		{
+			"path": "pages/dashboard/refund"
 		}
 	],
 	"globalStyle": {
 		"navigationStyle": "custom",
-		"enablePullDownRefresh": true
+		"enablePullDownRefresh": false
 	},
 	"tabBar": {
 		"color": "#0B0B0B",

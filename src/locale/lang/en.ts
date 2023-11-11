@@ -20,17 +20,18 @@ export default {
       text6: 'Write-off remarks',
       btn: 'Verification'
     },
-    result:{
-      text:'Write-off results',
-      text1:'The write-off is successful!',
-      text2:'You have successfully cancelled',
-      text3:'tickets',
-      text4:'Write-off remarks',
-      btn:'Return to the top page',
-      btn1:'Continue to write-off',
+    result: {
+      text: 'Write-off results',
+      text1: 'The write-off is successful!',
+      text2: 'You have successfully cancelled',
+      text3: 'tickets',
+      text4: 'Write-off remarks',
+      btn: 'Return to the top page',
+      btn1: 'Continue to write-off',
     }
 
-  }, dashboard: {
+  },
+  dashboard: {
     text: 'dashboard',
     text1: 'Pending orders',
     text2: 'Spelling Bureau Review',
@@ -38,6 +39,32 @@ export default {
     text4: 'Refund review',
     text5: 'Coupon review',
     tag: 'piece',
-    tag1: 'strip'
+    tag1: 'strip',
+    fight: {
+      btn1: 'not passed',
+      btn2: 'pass'
+    },
+    radio: {
+      type: 'type'
+    },
+    refund: {
+      text1: 'refund amount:',
+      text2: 'refund no:',
+      text3: 'contact:',
+      text4: 'reason for refund:',
+      text5: 'applicant:',
+      text6: 'audit actions:',
+      btn1: 'audit',
+    },
+    coupons: {
+      text1: 'denomination:',
+      text2: 'date created:',
+      text3: 'valid until:',
+      text4: 'coupon issuance method:',
+      text5: 'created by:',
+      text6: 'audit actions:',
+      btn1: 'audit',
+    }
+
   }
 };

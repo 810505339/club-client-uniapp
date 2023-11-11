@@ -20,15 +20,15 @@ export default {
       text6: '核销备注',
       btn: '核销'
     },
-    result:{
-      text:'核销结果',
-      text1:'核销成功!',
-      text2:'你成功核销',
-      text3:'张门票',
-      text4:'核销备注',
-      btn:'返回首页',
-      btn1:'继续核销',
-      
+    result: {
+      text: '核销结果',
+      text1: '核销成功!',
+      text2: '你成功核销',
+      text3: '张门票',
+      text4: '核销备注',
+      btn: '返回首页',
+      btn1: '继续核销',
+
     }
 
   },
@@ -40,8 +40,31 @@ export default {
     text4: '退款审核',
     text5: '优惠券审核',
     tag: '个',
-    tag1: '条'
-
-
+    tag1: '条',
+    fight: {
+      btn1: '不通过',
+      btn2: '通过'
+    },
+    radio: {
+      type: '类型'
+    },
+    refund:{
+      text1:'退费金额：',
+      text2:'退费单号：',
+      text3:'联系方式：',
+      text4:'退费原因：',
+      text5:'申请人：',
+      text6:'审核操作：',
+      btn1:'审核',
+    },
+    coupons:{
+      text1:'面额：',
+      text2:'创建日期：',
+      text3:'有效期至：',
+      text4:'发券方式：',
+      text5:'创建人：',
+      text6:'审核操作：',
+      btn1:'审核',
+    }
   }
 };

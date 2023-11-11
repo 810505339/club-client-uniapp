@@ -3,7 +3,8 @@
     <view class="p-5 h-full">
       <text class="text-xl text-white">{{ t('dashboard.text') }}</text>
       <view>
-        <view v-for="item in list" :key="item.id" class="relative  h-28 flex justify-between items-center p-5 my-2.5">
+        <view v-for="item in list" :key="item.id" class="relative  h-28 flex justify-between items-center p-5 my-2.5"
+          @click="handleClick(item)">
           <image :src="item.box" mode="heightFix" class="absolute inset-0 -z-10" />
           <view :style="{ color: item.color }" class="h-full flex flex-col justify-between">
             <view class="font-bold">{{ t(item.text) }}</view>
@@ -21,11 +22,12 @@
 <script setup lang="ts">
 import baseView from '@/components/baseview/index.vue'
 import { useI18n } from 'vue-i18n';
-import useData from './hooks/usedata'
+import useData, { IData } from './hooks/usedata'
 const { t } = useI18n()
 const { list } = useData()
-onReachBottom(() => {
-  console.log(11);
-
-})
+function handleClick(item: IData) {
+  uni.navigateTo({
+    url: item.url
+  })
+}
 </script>
