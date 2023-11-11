@@ -1,7 +1,9 @@
 <template>
   <view class=" w-[100vw] relative bg-[#0b0b0b] overflow-scroll">
-    <view catchtouchmove="true">
-      <uni-popup ref="popup" type="center">中间弹出 Popup</uni-popup>
+    <view catchtouchmove="true" v-if="showPopup">
+      <uni-popup ref="popup" type="center">
+        <slot name="popup" />
+      </uni-popup>
     </view>
     <view class="h-[100vh] w-[100vw] fixed  z-10 inset-0">
       <image :src="img" class="absolute inset-0" v-if="showBg" />
@@ -23,8 +25,8 @@
           <text class="text-white opacity-75 text-xs  w-20 truncate">UserNameasdasdasdasdasdasdad</text>
           <view class="h-8 w-8 bg-indigo-500 rounded-full"></view>
         </view>
-        <slot :open="open" />
-        <button @click="open">按钮</button>
+        <slot />
+
         <!-- <custom-tab-bar direction="horizontal" :show-icon="false" :selected="selected" @onTabItemTap="onTabItemTap" /> -->
       </scroll-view>
     </view>
@@ -36,25 +38,26 @@
 import { onMounted, ref, defineProps, withDefaults, CSSProperties } from 'vue';
 import bg from '@/assets/img/base/bg.png'
 import logo from '@/assets/img/login/logo.png'
+import { usePopup } from '@/stores/usePopup';
 type IProps = {
   img?: string;
   showBg?: boolean;
   showLogo?: boolean;
+  showPopup?: boolean;
 }
 
+const store = usePopup()
+const { popup } = storeToRefs(store)
 
 const props = withDefaults(defineProps<IProps>(), {
   img: bg,
   showBg: true,
-  showLogo: true
+  showLogo: true,
+  showPopup: false
 })
 const statusBarHeight = ref(0);
 
-const popup = ref()
 
-const open = () => {
-  popup.value.open('center')
-}
 
 const refresher = ref(false);
 

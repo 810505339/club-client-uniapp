@@ -1,7 +1,6 @@
 <template>
-  <base-view>
+  <base-view :show-popup="true">
     <view class="p-5">
-     
       <text class="text-xl text-white">{{ $t('dashboard.text5') }}</text>
       <view class="mt-5">
         <view v-for="item in state.list" class="bg-[#161616BF] rounded-xl my-5">
@@ -20,7 +19,7 @@
               </view>
             </view>
             <view class="absolute  bottom-2.5 right-2.5">
-              <button @click="open"
+              <button @click="handleClick"
                 class="rounded-3xl bg-[#EE2737FF] m-0 h-10  border-white border text-[ #000000]  text-base flex items-center justify-center font-semibold">{{
                   t('dashboard.refund.btn1') }}</button>
             </view>
@@ -32,12 +31,21 @@
 
 
     </view>
+    <template v-slot:popup>
+      <view class="text-white">
+        你好
+      </view>
+    </template>
   </base-view>
 </template>
 
 <script setup lang="ts">
 import baseView from '@/components/baseview/index.vue'
+import { usePopup } from '@/stores/usePopup';
 import { useI18n } from 'vue-i18n';
+
+
+
 const state = ref({
   list: Array.from({ length: 20 }, (_, index) => ({ id: index })),
   infoList: [
@@ -49,14 +57,17 @@ const state = ref({
     { label: 'dashboard.coupons.text6', value: '' },
   ]
 })
-const popup = ref()
+
 
 const { t } = useI18n()
 
-function open() {
-  console.log(popup.value);
+const store = usePopup()
 
-  popup.value.open('center')
 
+function handleClick() {
+  console.log(store);
+
+  store.open('center')
 }
+
 </script>
