@@ -3,7 +3,7 @@
     <view class="p-5">
       <text class="text-xl text-white">{{ $t('dashboard.text4') }}</text>
       <view class="mt-5">
-        <view v-for="item in state.list" class="bg-[#161616BF] rounded-xl my-5">
+        <view v-for="item in state.list" class="bg-[#161616BF] rounded-xl my-5" :key="item.id">
           <view class="p-2.5 border-b border-[#000000BF]  flex flex-col justify-between">
             <view class="text-white text-xs font-normal flex items-center justify-between">
               <view class="bg-violet-500 h-6 w-6 rounded-full"></view>
@@ -29,11 +29,16 @@
         </view>
       </view>
     </view>
+    <template v-slot:popup>
+      <popup @disagree="disagree" @agree="agree" @changeTextarea="changeTextarea" />
+
+    </template>
   </base-view>
 </template>
 
 <script setup lang="ts">
 import baseView from '@/components/baseview/index.vue'
+import { usePopup } from '@/stores/usePopup';
 import { useI18n } from 'vue-i18n';
 const state = ref({
   list: Array.from({ length: 20 }, (_, index) => ({ id: index })),
@@ -48,4 +53,28 @@ const state = ref({
 })
 
 const { t } = useI18n()
+
+
+const store = usePopup()
+
+
+function handleClick() {
+  console.log(store);
+
+  store.open('center')
+}
+
+function disagree() {
+  console.log('不同意');
+
+}
+
+function agree() {
+  console.log('同意');
+
+}
+function changeTextarea(value: string) {
+  console.log(value);
+
+}
 </script>

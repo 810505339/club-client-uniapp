@@ -66,5 +66,9 @@ export default {
       btn1: 'audit',
     }
 
+  },
+  base: {
+    title: 'audit',
+    text: 'audit instructions'
   }
 };

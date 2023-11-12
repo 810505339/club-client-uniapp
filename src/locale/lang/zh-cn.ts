@@ -48,23 +48,27 @@ export default {
     radio: {
       type: '类型'
     },
-    refund:{
-      text1:'退费金额：',
-      text2:'退费单号：',
-      text3:'联系方式：',
-      text4:'退费原因：',
-      text5:'申请人：',
-      text6:'审核操作：',
-      btn1:'审核',
+    refund: {
+      text1: '退费金额：',
+      text2: '退费单号：',
+      text3: '联系方式：',
+      text4: '退费原因：',
+      text5: '申请人：',
+      text6: '审核操作：',
+      btn1: '审核',
     },
-    coupons:{
-      text1:'面额：',
-      text2:'创建日期：',
-      text3:'有效期至：',
-      text4:'发券方式：',
-      text5:'创建人：',
-      text6:'审核操作：',
-      btn1:'审核',
+    coupons: {
+      text1: '面额：',
+      text2: '创建日期：',
+      text3: '有效期至：',
+      text4: '发券方式：',
+      text5: '创建人：',
+      text6: '审核操作：',
+      btn1: '审核',
     }
+  },
+  base: {
+    title: '审核',
+    text: '审核说明'
   }
 };

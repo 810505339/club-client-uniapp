@@ -7,15 +7,15 @@
       </view>
       <view class="relative h-24  box mt-5 flex items-center justify-end rounded-xl">
         <view class="absolute boxicon z-10 left-0 bottom-0">
-          <image :src="boxIcon" />
+          <image :src="boxIcon"  mode="heightFix" />
         </view>
         <view class="h-full flex flex-col justify-between p-4">
-          <view><text class="text-[10px] text-white">{{ t('home.text1') }}</text></view>
-          <view><text class="text-[#EE2737FF] text-4xl font-bold ">5,465</text><text class="text-[10px] text-white">{{
+          <view><text class="text-[20px] text-white">{{ t('home.text1') }}</text></view>
+          <view><text class="text-[#EE2737FF] text-4xl font-bold ">5,465</text><text class="text-[20px] text-white">{{
             t('home.text2') }}</text></view>
         </view>
-        <view class="h-full w-[90px] flex justify-center items-center shadow-md  border-[#000000BF] border-l">
-          <text class="text-[10px] text-white opacity-50">{{ t('home.text3') }}</text>
+        <view class="h-full w-[180px] flex justify-center items-center shadow-md  border-[#000000BF] border-l">
+          <text class="text-[20px] text-white opacity-50">{{ t('home.text3') }}</text>
         </view>
       </view>
       <view class="mt-5">
@@ -55,7 +55,7 @@ const { t } = useI18n()
 }
 
 .boxicon {
-  width: 102px;
-  height: 102px;
+
+  height: 200rpx;
 }
 </style>
