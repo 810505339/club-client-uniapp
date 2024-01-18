@@ -54,6 +54,7 @@
     "@dcloudio/uni-quickapp-webview": "3.0.0-3081220230817001",
     "@heroicons/vue": "^2.0.18",
     "@vue/shared": "^3.3.4",
+    "echarts": "^5.4.3",
     "pinia": "~2.0.36",
     "vue": "^3.2.45",
     "vue-i18n": "^9.6.5",
