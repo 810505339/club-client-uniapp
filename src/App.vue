@@ -1,6 +1,8 @@
 <script setup lang="ts">
+
+import { intercept } from '@/api/base'
 onLaunch(() => {
-  console.log('App Launch')
+  intercept()
 })
 onShow(() => {
   console.log('App Show')
@@ -22,8 +24,8 @@ uni-image {
 }
 
 image {
-  width: 100% ;
-  height: 100% ;
+  width: 100%;
+  height: 100%;
 }
 
 button::after {

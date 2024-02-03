@@ -21,10 +21,7 @@
     <view class="flex">
       <scroll-view scroll-y class="w-full relative z-10 " :style="contextHight" @scrolltolower="scrolltolower"
         :refresher-enabled="true" :refresher-triggered="refresher" @refresherrefresh="refresherrefresh">
-        <view class="flex items-center absolute top-5 right-5">
-          <text class="text-white opacity-75 text-xs  w-20 truncate">UserNameasdasdasdasdasdasdad</text>
-          <view class="h-8 w-8 bg-indigo-500 rounded-full"></view>
-        </view>
+        <user />
         <slot />
 
         <!-- <custom-tab-bar direction="horizontal" :show-icon="false" :selected="selected" @onTabItemTap="onTabItemTap" /> -->
@@ -39,6 +36,7 @@ import { onMounted, ref, defineProps, withDefaults, CSSProperties } from 'vue';
 import bg from '@/assets/img/base/bg.png'
 import logo from '@/assets/img/login/logo.png'
 import { usePopup } from '@/stores/usePopup';
+import user from './user.vue'
 type IProps = {
   img?: string;
   showBg?: boolean;
@@ -48,6 +46,7 @@ type IProps = {
 
 const store = usePopup()
 const { popup } = storeToRefs(store)
+
 
 const props = withDefaults(defineProps<IProps>(), {
   img: bg,

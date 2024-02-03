@@ -33,5 +33,8 @@ export default defineConfig({
     postcss: {
       plugins: postcssPlugins
     }
+  },
+  build: {
+    minify: false
   }
 })
