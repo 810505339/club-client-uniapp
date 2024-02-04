@@ -1,5 +1,5 @@
 <template>
-  <base-view>
+  <base-view :refresherEnabled="true" @refresh="refresh" @loadMore="getList">
     <view class="p-5">
       <view class="flex items-center justify-between">
         <text class="text-xl text-white">{{ t('home.text') }}</text>
@@ -11,10 +11,13 @@
         </view>
         <view class="h-full flex flex-col justify-between p-4">
           <view><text class="text-[20px] text-white">{{ t('home.text1') }}</text></view>
-          <view><text class="text-[#EE2737FF] text-4xl font-bold ">5,465</text><text class="text-[20px] text-white">{{
-            t('home.text2') }}</text></view>
+          <view><text class="text-[#EE2737FF] text-4xl font-bold ">{{ number }}</text><text
+              class="text-[20px] text-white">{{
+                t('home.text2') }}</text></view>
         </view>
-        <view class="h-full w-[180px] flex flex-col justify-center items-center shadow-md  border-[#000000BF] border-l">
+        <!-- 开始扫码 -->
+        <view class="h-full w-[180px] flex flex-col justify-center items-center shadow-md  border-[#000000BF] border-l"
+          @click="handleCheck">
           <image :src="box1Icon" class="w-12 h-12" />
           <text class="text-[20px] text-white opacity-50 mt-2.5">{{ t('home.text3') }}</text>
         </view>
@@ -22,18 +25,27 @@
       <view class="mt-5">
         <text class="text-xl text-white">{{ t('home.text4') }}</text>
 
-        <view v-for="item, index in list" class="h-24 p-2.5 bg-[#161616BF]  rounded-xl my-2.5" :key="index">
-          <view class=" text-white text-sx">
-            <text>门票区域/10张/预定门票</text>
+
+
+
+        <!-- list -->
+
+        <CsList v-bind:="formData">
+          <view v-for="item, index in list" class="h-24 p-2.5 bg-[#161616BF]  rounded-xl my-2.5" :key="index">
+            <view class=" text-white text-sx">
+              <text>{{ ticketName(item) }}</text>
+            </view>
+            <view class="opacity-50 text-white text-xs font-semibold">
+              <text>备注：{{ item.remark }}</text>
+            </view>
+            <view class="opacity-50 text-white text-sx flex items-center justify-between">
+              <text>{{ item.checkTime }}</text>
+              <text>{{ item.checkPerson }}</text>
+            </view>
           </view>
-          <view class="opacity-50 text-white text-xs font-semibold">
-            <text>备注：无</text>
-          </view>
-          <view class="opacity-50 text-white text-sx flex items-center justify-between">
-            <text>2023/10/13 16:41:12</text>
-            <text>Ruth Martin</text>
-          </view>
-        </view>
+        </CsList>
+
+
 
 
       </view>
@@ -46,10 +58,58 @@ import baseView from '@/components/baseview/index.vue'
 import boxIcon from '@/assets/img/home/box.png'
 import box1Icon from '@/assets/img/home/box1.png'
 import { useI18n } from 'vue-i18n'
+import useList from '@/hooks/useList'
+import { ticketByList, ticketCheck } from '@/api/ticket'
+import useTodayNumber from './hooks/useTodayNumber'
+import CsList from '@/components/list/index.vue'
 
-const list = Array.from({ length: 10 })
+const formState = ref({
+  params: {
+    status: 'USED'
+  },
+  load: ticketByList
+})
 
+const { list, refresh, getList, formData } = useList(formState)
+/* 获取每日扫码数量 */
+const { number } = useTodayNumber()
 const { t } = useI18n()
+
+
+/* computed */
+
+const ticketName = computed(() => {
+  return function (ticket: any) {
+    const { areaName, checkNumber, usageType } = ticket as any
+
+    return [areaName, checkNumber + '张', usageType].join('/')
+  }
+})
+
+
+/* 点击开始扫码 */
+async function handleCheck() {
+  // uni.scanCode({
+  //   scanType: ['qrCode'],
+  //   success: (res) => {
+  //     console.log(res);
+  //   }
+  // })
+  // uni.navigateTo({
+  //   url: '/pages/home/info'
+  // })
+  await ticketCheck({
+    id: '1743938739769470977',
+    checkNumber: 1,
+    remark: '测试核销'
+  })
+
+}
+
+
+
+
+
 </script>
 
 <style scoped>

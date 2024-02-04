@@ -1,7 +1,10 @@
 <template>
-  <base-view>
+  <base-view :refresher-enabled="true">
     <view class="p-5">
-      <text class="text-xl text-white">{{ t('home.text') }}</text>
+      <view class="flex items-center justify-between">
+        <text class="text-xl text-white">{{ t('home.text') }}</text>
+
+      </view>
       <view class="mt-5 bg-[#161616BF] p-5 rounded-3xl">
         <view class="flex">
           <view class="h-16 w-28 bg-violet-500 rounded-xl">
@@ -21,9 +24,9 @@
               <text class="text-base text-right w-40 font-normal  break-all ">{{ item.value }}</text>
             </view>
           </view>
-          <view class="text-xs text-white font-semibold mt-8">门票信息</view>
+          <view class="text-xs text-white font-semibold mt-8">核销备注</view>
           <view class="mt-2.5 border-[#343434] border p-2.5 rounded-xl">
-            <textarea placeholder-class="textarea-placeholder" placeholder="占位符字体是红色的" />
+            <textarea placeholder-class="textarea-placeholder" placeholder="请输入备注" />
           </view>
         </view>
       </view>
