@@ -10,7 +10,7 @@ type IState = {
 
 const defaultFormData = {
   current: 1,
-  size: 10,
+  size: 3,
   loading: false, //是否正在加载
   finished: false, // 是否全部加载完成
   empty: false,
@@ -31,13 +31,20 @@ export default function useList(state: Ref<IState>) {
       return
     }
     try {
-      const res = await state.value.load({ ...formData.value, ...state.value.params })
-      list.value = [...list.value, ...res.records]
-      formData.value.finished = res.total <= list.value.length
-      formData.value.current++
+      const res = await state.value.load({ current: formData.value.current, size: formData.value.size, ...state.value.params })
+      console.log(res, res == null, 'res');
+      if (res) {
+        list.value = [...list.value, ...res.records]
+        formData.value.finished = res.total <= list.value.length
+        formData.value.current++
 
-      if (list.value.length === 0) {
+        if (list.value.length === 0) {
+          formData.value.empty = true
+        }
+
+      } else {
         formData.value.empty = true
+        formData.value.loading = false
       }
 
     } catch (err) {

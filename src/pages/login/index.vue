@@ -2,6 +2,8 @@
   <view class="h-[100vh] w-[100vw] fixed  z-10 inset-0">
     <image :src="bg" class="absolute inset-0" />
 
+    
+
     <view class="absolute left-5 right-5  top-1/2 -translate-y-1/2">
       <view class=" z-0  h-11 flex flex-row items-center  mb-5">
         <view class="w-[122px] h-[64px] mx-2.5">
@@ -105,5 +107,7 @@ image {
   width: 100%;
   height: 100%;
 }
+
+
 </style>
-@/stores/useInfo
+
