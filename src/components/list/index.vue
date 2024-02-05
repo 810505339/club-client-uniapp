@@ -3,7 +3,7 @@
     <slot></slot>
     <view class="text-white text-center text-xs py-2 flex items-center justify-center">
 
-
+     
       <view v-if="empty">无数据</view>
       <view class="w-6 h-6" v-if="loading">
         <image

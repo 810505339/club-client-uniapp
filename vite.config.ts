@@ -32,7 +32,12 @@ export default defineConfig({
   css: {
     postcss: {
       plugins: postcssPlugins
-    }
+    },
+    // preprocessorOptions:{
+    //   scss: {
+    //     additionalData: `@import "uview-plus/index.scss";`
+    //   }
+    // }
   },
   build: {
     minify: false

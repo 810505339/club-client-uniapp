@@ -7,20 +7,19 @@
       </view>
     </view>
     <view class="bg-[#222222] p-5 rounded-b-[40rpx] overflow-hidden">
-
       <view>
         <view class="text-white text-xs font-semibold"> {{ t('base.text') }}</view>
         <view class="mt-2.5 border-[#343434] border p-2.5 rounded-xl">
-          <textarea placeholder-class="textarea-placeholder" placeholder="占位符字体是红色的" v-model="textarea" />
+          <textarea placeholder-class="textarea-placeholder" placeholder="请输入备注" v-model="textarea" />
         </view>
       </view>
 
       <view class="flex items-center justify-between p-2.5">
         <button
           class="rounded-3xl bg-[#161616BF] m-0 h-10    border border-[#FFFFFF33]  text-white opacity-75  text-base flex items-center justify-center font-semibold"
-          @click="emits('disagree')">{{
+          @click="emits('disagree', textarea)">{{
             t('dashboard.fight.btn1') }}</button>
-        <button @click="emits('agree')"
+        <button @click="emits('agree', textarea)"
           class="rounded-3xl bg-[#EE2737FF] m-0 h-10  border-white border text-[ #000000]  text-base flex items-center justify-center font-semibold">{{
             t('dashboard.fight.btn2') }}</button>
       </view>
@@ -31,12 +30,12 @@
 <script setup lang='ts'>
 import { useI18n } from 'vue-i18n';
 import headerIcon from '@/assets/img/base/header.png'
+import { useModel } from 'vue';
 const { t } = useI18n()
 const emits = defineEmits(['agree', 'disagree', 'changeTextarea'])
 const textarea = ref('')
-watch(() => {
-  emits('changeTextarea', textarea.value)
-})
+
+
 
 
 </script>

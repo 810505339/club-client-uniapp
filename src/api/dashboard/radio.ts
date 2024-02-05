@@ -15,7 +15,15 @@ export const getRadioList = async (params: any) => {
 }
 
 
+/* 广播审核 */
 
+export const broadcastAudit = async (params: any) => {
+  const { data } = await baseRequest({
+    url: '/operation/broadcast/broadcastAudit',
+    method: 'PUT',
+    data: params
+  })
 
-
+  return data.data
+}
 

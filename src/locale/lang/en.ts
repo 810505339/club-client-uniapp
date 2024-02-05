@@ -70,5 +70,11 @@ export default {
   base: {
     title: 'audit',
     text: 'audit instructions'
+  },
+  modal: {
+    btn1: '确定',
+    btn2: '取消',
+    title: '操作',
+    context: '是否进行此操作?'
   }
 };

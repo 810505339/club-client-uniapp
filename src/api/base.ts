@@ -5,6 +5,11 @@ const baseUrl = import.meta.env.VITE_ADMIN_PROXY_PATH
 
 console.log(baseUrl);
 
+enum CODELIST {
+	TOKENCAN = '424',
+
+}
+
 
 // /**
 //  * 创建并配置一个 Axios 实例对象
@@ -115,7 +120,7 @@ function intercept() {
 
 			const token = uni.getStorageSync('token')
 
-			console.log(token.access_token);
+
 
 			args.url = baseUrl + args.url
 
@@ -126,8 +131,14 @@ function intercept() {
 
 
 			args.header = {
+				...args.header,
 				Authorization: `Bearer ${token.access_token}`
 			}
+
+			console.log(args.header);
+
+
+
 
 
 
@@ -146,22 +157,56 @@ function intercept() {
 			console.log('interceptor-fail', err)
 		},
 		complete(res: any) {
-			console.log('interceptor-complete', res)
+
+
+
+
+			if (!res.data.success) {
+				uni.showToast({
+					title: res.data.msg,
+					icon: 'none',
+					duration: 2000
+				})
+			}
+
+			if (res.statusCode == CODELIST.TOKENCAN) {
+				uni.navigateTo({
+					url: "/pages/login/index"
+				})
+			}
 		}
 	})
 }
 
 
-async function baseRequest(params: UniNamespace.RequestOptions): Promise<{ data: any }> {
+
+type IBaseRequestOption = {
+	msg?: boolean
+}
+
+async function baseRequest(params: UniNamespace.RequestOptions, option?: IBaseRequestOption): Promise<{ data: any }> {
 	return new Promise((resolve, reject) => {
 		uni.request({
 			...params,
 			success: (res) => {
+				console.log(res, 'success');
+
 				resolve(res)
 			},
 			fail: (err) => {
 				reject(err)
 			},
+			complete: (res: any) => {
+				if (res.data.success && option?.msg) {
+					/* 全局默认操作成功 */
+					uni.showToast({
+						title: '操作成功',
+						icon: 'none',
+						duration: 2000
+					})
+				}
+
+			}
 		});
 	})
 }

@@ -10,16 +10,16 @@
           <image :src="boxIcon" mode="heightFix" />
         </view>
         <view class="h-full flex flex-col justify-between p-4">
-          <view><text class="text-[20px] text-white">{{ t('home.text1') }}</text></view>
+          <view><text class="text-[10px] text-white">{{ t('home.text1') }}</text></view>
           <view><text class="text-[#EE2737FF] text-4xl font-bold ">{{ number }}</text><text
               class="text-[20px] text-white">{{
                 t('home.text2') }}</text></view>
         </view>
         <!-- 开始扫码 -->
-        <view class="h-full w-[180px] flex flex-col justify-center items-center shadow-md  border-[#000000BF] border-l"
+        <view class="h-full w-[90px] flex flex-col justify-center items-center shadow-md  border-[#000000BF] border-l"
           @click="handleCheck">
           <image :src="box1Icon" class="w-12 h-12" />
-          <text class="text-[20px] text-white opacity-50 mt-2.5">{{ t('home.text3') }}</text>
+          <text class="text-[10px] text-white opacity-50 mt-2.5">{{ t('home.text3') }}</text>
         </view>
       </view>
       <view class="mt-5">
@@ -35,10 +35,10 @@
             <view class=" text-white text-sx">
               <text>{{ ticketName(item) }}</text>
             </view>
-            <view class="opacity-50 text-white text-xs font-semibold">
+            <view class="opacity-50 text-white text-xs font-semibold my-2">
               <text>备注：{{ item.remark }}</text>
             </view>
-            <view class="opacity-50 text-white text-sx flex items-center justify-between">
+            <view class="opacity-50 text-white text-xs flex items-center justify-between">
               <text>{{ item.checkTime }}</text>
               <text>{{ item.checkPerson }}</text>
             </view>

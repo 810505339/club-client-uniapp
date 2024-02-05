@@ -5,7 +5,7 @@
       <view class="mt-5">
         <view v-for="item in list" :key="item.id" class="relative  h-28  flex justify-between items-center p-5 my-2.5"
           @click="handleClick(item)">
-          <image :src="item.box"  class="absolute inset-0 -z-10 w-full" />
+          <image :src="item.box" class="absolute inset-0 -z-10 w-full" />
           <view :style="{ color: item.color }" class="h-full flex flex-col justify-between">
             <view class="font-bold">{{ t(item.text) }}</view>
             <view><text class="font-bold text-5xl">{{ item.value }}</text> {{ t(item.tag) }}</view>

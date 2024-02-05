@@ -2,11 +2,11 @@
   <view class="h-[100vh] w-[100vw] fixed  z-10 inset-0">
     <image :src="bg" class="absolute inset-0" />
 
-    
+
 
     <view class="absolute left-5 right-5  top-1/2 -translate-y-1/2">
       <view class=" z-0  h-11 flex flex-row items-center  mb-5">
-        <view class="w-[122px] h-[64px] mx-2.5">
+        <view class="w-[61px] h-[32px] mx-2.5">
           <image :src="logo" />
         </view>
         <view>
@@ -15,11 +15,11 @@
       </view>
       <view class="rounded-3xl z-0 bg-[#222222BF] h-60 p-5 flex-col justify-between overflow-hidden ">
         <view class="rounded-xl bg-[#191919FF]">
-          <input class="uni-input text-[#FFFFFFFF] text-xs px-4 " type="text" focus placeholder="请输入您的账号"
+          <input class="h-[50px] text-[#FFFFFFFF] text-xs px-4 " type="text" focus placeholder="请输入您的账号"
             v-model="loginData.username" />
           <view class="border-[#ffffff19] border-b h-[1px]"></view>
           <view class="flex flex-row items-center">
-            <input type="text" class="uni-input text-[#FFFFFFFF] text-xs px-4 flex-auto" placeholder="请输入您的密码"
+            <input type="text" class=" h-[50px] text-[#FFFFFFFF] text-xs px-4 flex-auto" placeholder="请输入您的密码"
               v-model="loginData.password" :password="!showPassword" />
             <view @click="onChangeshowPassword" class="mr-2">
               <uni-icons :type="passwordIcon" size="20" />
@@ -107,7 +107,5 @@ image {
   width: 100%;
   height: 100%;
 }
-
-
 </style>
 

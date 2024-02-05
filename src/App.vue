@@ -14,6 +14,7 @@ onHide(() => {
 </script>
 
 <style lang="scss">
+@import "uview-plus/index.scss";
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
@@ -30,5 +31,9 @@ image {
 
 button::after {
   border: none !important;
+}
+
+.border {
+  border: 1px solid;
 }
 </style>

@@ -18,6 +18,8 @@ enum DATATYPE {
   广播 = 'BROADCAST'
 }
 
+
+
 export type IData = {
   id: number;
   color: string;
@@ -39,6 +41,8 @@ export default () => {
     { id: 3, color: '#759BFFFF', box: box3, btn: btn3, text: 'dashboard.text4', tag: 'dashboard.tag1', value: '0', url: '/pages/dashboard/refund', type: DATATYPE.退款 },
     { id: 4, color: '#FAAD14FF', box: box4, btn: btn4, text: 'dashboard.text5', tag: 'dashboard.tag1', value: '0', url: '/pages/dashboard/coupons', type: DATATYPE.优惠券 },
   ])
+
+  
   onMounted(async () => {
     const res: any[] = await getDashboardList()
     console.log(res);

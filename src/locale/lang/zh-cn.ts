@@ -69,6 +69,13 @@ export default {
   },
   base: {
     title: '审核',
-    text: '审核说明'
+    text: '审核说明',
+
+  },
+  modal: {
+    btn1: '确定',
+    btn2: '取消',
+    title: '操作',
+    context: '是否进行此操作?'
   }
 };

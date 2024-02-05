@@ -1,8 +1,13 @@
 <template>
   <base-view>
     <view class="p-5">
+
       <text class="text-xl text-white font-semibold ">{{ $t(`dashboard.text1`) }}</text>
-      <view class="mt-5">
+
+      <u-tabs :list="list">
+
+      </u-tabs>
+      <!-- <view class="mt-5">
         <view v-for="item in state.list" :key="item.id"
           class="h-24 bg-[#161616BF] my-2.5 rounded-xl flex items-center p-2.5">
           <view class="flex-auto h-full text-white font-normal">
@@ -18,7 +23,7 @@
             确认
           </view>
         </view>
-      </view>
+      </view> -->
     </view>
   </base-view>
 </template>
@@ -30,3 +35,9 @@ const state = ref({
 })
 
 </script>
+
+<style scoped lang="scss">
+.login {
+  width: 10px;
+}
+</style>

@@ -7,5 +7,12 @@ export const usePopup = defineStore('usePopup', () => {
     popup.value.open(postion)
   }
 
-  return { popup, open }
+  function close() {
+    popup.value.close() // 清除弹窗
+  }
+
+  onUnmounted(() => {
+    close()
+  })
+  return { popup, open, close }
 })
