@@ -36,4 +36,8 @@ button::after {
 .border {
   border: 1px solid;
 }
+
+view {
+  color: white;
+}
 </style>

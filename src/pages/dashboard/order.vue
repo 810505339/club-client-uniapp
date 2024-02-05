@@ -4,9 +4,7 @@
 
       <text class="text-xl text-white font-semibold ">{{ $t(`dashboard.text1`) }}</text>
 
-      <u-tabs :list="list">
-
-      </u-tabs>
+    
       <!-- <view class="mt-5">
         <view v-for="item in state.list" :key="item.id"
           class="h-24 bg-[#161616BF] my-2.5 rounded-xl flex items-center p-2.5">

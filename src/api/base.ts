@@ -135,7 +135,7 @@ function intercept() {
 				Authorization: `Bearer ${token.access_token}`
 			}
 
-			console.log(args.header);
+			// console.log(args.header);
 
 
 
@@ -189,7 +189,7 @@ async function baseRequest(params: UniNamespace.RequestOptions, option?: IBaseRe
 		uni.request({
 			...params,
 			success: (res) => {
-				console.log(res, 'success');
+			
 
 				resolve(res)
 			},

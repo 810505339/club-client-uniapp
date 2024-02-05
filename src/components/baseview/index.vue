@@ -18,14 +18,18 @@
         <slot name="navBar" />
       </view>
     </view>
-    <view class="flex">
+    <view class="flex relative z-10">
+
       <scroll-view scroll-y class="w-full relative z-10 " :style="contextHight" @scrolltolower="scrolltolower"
-        :refresher-enabled="refresherEnabled" :refresher-triggered="refresher" @refresherrefresh="refresherrefresh">
+        :refresher-enabled="refresherEnabled" :refresher-triggered="refresher" @refresherrefresh="refresherrefresh"
+        v-if="isScroll">
         <user />
         <slot />
-
-        <!-- <custom-tab-bar direction="horizontal" :show-icon="false" :selected="selected" @onTabItemTap="onTabItemTap" /> -->
       </scroll-view>
+      <view class="w-full " v-else>
+        <user />
+        <slot />
+      </view>
     </view>
 
   </view>
@@ -43,7 +47,8 @@ type IProps = {
   showLogo?: boolean;
   showPopup?: boolean;
   refresherEnabled?: boolean;
-  refresher?: boolean
+  refresher?: boolean;
+  isScroll?: boolean;
 }
 
 const store = usePopup()
@@ -57,6 +62,7 @@ const props = withDefaults(defineProps<IProps>(), {
   showPopup: false,
   refresherEnabled: false,
   refresher: false,
+  isScroll: true
 })
 const emit = defineEmits(['refresh', 'loadMore'])
 
