@@ -59,8 +59,8 @@
 import baseView from '@/components/baseview/index.vue'
 import { StyleValue } from 'vue';
 import { useI18n } from 'vue-i18n';
-import btn1 from '@/assets/img/home/info/btn1.png'
-import btn2 from '@/assets/img/home/info/btn2.png'
+import btn1 from '@/assets/img/home/info/add.png'
+import btn2 from '@/assets/img/home/info/sub.png'
 
 const { t } = useI18n()
 const placeholderStyle: StyleValue = {

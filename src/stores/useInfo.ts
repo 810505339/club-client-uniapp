@@ -42,7 +42,7 @@ export const useUserInfo = defineStore('useUserInfo', () => {
 		/* 登录成功跳转 */
 
 		uni.switchTab({
-			url: '/pages/home/index'
+			url: '/tabs/home'
 		})
 
 

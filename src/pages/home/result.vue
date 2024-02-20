@@ -37,7 +37,7 @@
 
 <script setup lang="ts">
 import baseView from '@/components/baseview/index.vue'
-import box from '@/assets/img/home/result/box.png'
+import box from '@/assets/img/home/result/success.png'
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n()
 

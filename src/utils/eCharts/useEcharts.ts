@@ -1,4 +1,4 @@
-import * as echarts from 'echarts';
+import * as echarts from '@/static/echarts.min.js';
 
 export default (option: any) => {
 
