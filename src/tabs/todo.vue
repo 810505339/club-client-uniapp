@@ -94,7 +94,7 @@
         <CardItem3 class="w-full" :data="resList[2]" />
         <CardItem4 class="w-full" :data="resList[3]" />
         <CardItem5 class="w-full" :data="resList[4]" />
-          <CardItem6 class="w-full" :data="resList[5]" />
+        <CardItem6 class="w-full" :data="resList[5]" />
       </view>
 
     </view>
@@ -105,11 +105,6 @@
 <script setup lang="ts">
 import baseView from '@/components/baseview/index.vue'
 import selectInput from '@/components/select-input/index.vue'
-import lechart from '@/components/lechart/index.vue'
-// import { useI18n } from 'vue-i18n';
-// import * as echarts from 'echarts';
-import dropdown from '@/assets/img/common/dropdown.png'
-import dateTime from '@/assets/img/common/dateTime.png'
 import { useSelectStore } from '@/pages/todo/hooks/useSelectStore';
 import { useSelectDate } from '@/pages/todo/hooks/useSelectDate';
 import useEchartData from '@/pages/todo/hooks/useEchartData';
@@ -119,6 +114,9 @@ import CardItem3 from '@/pages/todo/components/card/item3.vue'
 import CardItem4 from '@/pages/todo/components/card/item4.vue'
 import CardItem5 from '@/pages/todo/components/card/item5.vue'
 import CardItem6 from '@/pages/todo/components/card/item6.vue'
+import { imgUrl } from '@/utils/config';
+const dropdown = imgUrl + 'dropdown.png'
+const dateTime = imgUrl + 'dateTime.png'
 // const { t } = useI18n()
 const { index, array, change, selectStore } = useSelectStore()
 const { range } = useSelectDate()

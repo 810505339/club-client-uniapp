@@ -20,7 +20,8 @@
 </template>
 
 <script setup lang="ts">
-import cardIcon from '@/assets/img/todo/card_2.png'
+import { imgUrl } from '@/utils/config';
+const cardIcon = imgUrl + 'card_2.png'
 defineProps<{
   data: any
 }>();

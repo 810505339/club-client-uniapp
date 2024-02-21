@@ -1,7 +1,7 @@
 <template>
   <view class="w-80">
     <view class="w-full h-[118rpx] relative">
-      <image :src="headerIcon" />
+      <image :src="imgUrl+'header.png'" />
       <view class="absolute z-10 inset-0 flex justify-center items-center text-white text-lg font-semibold">
         {{ t('base.title') }}
       </view>
@@ -29,8 +29,7 @@
 
 <script setup lang='ts'>
 import { useI18n } from 'vue-i18n';
-import headerIcon from '@/assets/img/base/header.png'
-import { useModel } from 'vue';
+import { imgUrl } from'@/utils/config';
 const { t } = useI18n()
 const emits = defineEmits(['agree', 'disagree', 'changeTextarea'])
 const textarea = ref('')

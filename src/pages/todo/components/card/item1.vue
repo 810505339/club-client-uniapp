@@ -19,13 +19,16 @@
 </template>
 
 <script setup lang="ts">
-import cardIcon from '@/assets/img/todo/card_1.png'
+
 import lechart from '@/components/lechart/index.vue'
 import { useStackedChatOptions } from '@/utils/eCharts/stackedChat';
+import useEcharts from '@/utils/eCharts/useEcharts'
+import { imgUrl } from '@/utils/config';
+const cardIcon = imgUrl + 'card_1.png'
 const props = defineProps<{
   data: any
 }>();
-import useEcharts from '@/utils/eCharts/useEcharts'
+
 
 
 const { setOption } = useStackedChatOptions()

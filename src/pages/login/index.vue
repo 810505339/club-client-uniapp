@@ -40,11 +40,13 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
+import { useUserInfo } from '@/stores/useInfo'
 import { imgUrl } from '@/utils/config';
 
 /* ref */
 const { t } = useI18n()
 const showPassword = ref(false)
+const store = useUserInfo()
 
 
 

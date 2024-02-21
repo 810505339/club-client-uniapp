@@ -1,13 +1,17 @@
-import box0 from '@/assets/img/dashboard/box0.png'
-import box1 from '@/assets/img/dashboard/box1.png'
-import box2 from '@/assets/img/dashboard/box2.png'
-import box3 from '@/assets/img/dashboard/box3.png'
-import box4 from '@/assets/img/dashboard/box4.png'
-import btn0 from '@/assets/img/dashboard/btn0.png'
-import btn1 from '@/assets/img/dashboard/btn1.png'
-import btn2 from '@/assets/img/dashboard/btn2.png'
-import btn3 from '@/assets/img/dashboard/btn3.png'
-import btn4 from '@/assets/img/dashboard/btn4.png'
+import { imgUrl } from '@/utils/config';
+
+const box0 = imgUrl + 'box0.png'
+const box1 = imgUrl + 'box1.png'
+const box2 = imgUrl + 'box2.png'
+const box3 = imgUrl + 'box3.png'
+const box4 = imgUrl + 'box4.png'
+
+const btn0 = imgUrl + 'btn0.png'
+const btn1 = imgUrl + 'btn1.png'
+const btn2 = imgUrl + 'btn2.png'
+const btn3 = imgUrl + 'btn3.png'
+const btn4 = imgUrl + 'btn4.png'
+
 import { getDashboardList } from '@/api/dashboard'
 
 enum DATATYPE {
@@ -42,7 +46,7 @@ export default () => {
     { id: 4, color: '#FAAD14FF', box: box4, btn: btn4, text: 'dashboard.text5', tag: 'dashboard.tag1', value: '0', url: '/pages/dashboard/coupons', type: DATATYPE.优惠券 },
   ])
 
-  
+
   onMounted(async () => {
     const res: any[] = await getDashboardList()
     console.log(res);

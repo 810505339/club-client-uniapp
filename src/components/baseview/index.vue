@@ -13,7 +13,7 @@
       <!-- 真正的导航栏内容 -->
       <view class="h-12 flex items-center w-full fixed z-40">
         <view class="h-8 mx-2.5" v-if="showLogo">
-          <image :src="logo" mode="heightFix" />
+          <image :src="imgUrl + 'logo.png'" mode="heightFix" />
         </view>
         <slot name="navBar" />
       </view>
@@ -37,10 +37,10 @@
 
 <script setup lang="ts">
 import { onMounted, ref, defineProps, withDefaults, CSSProperties } from 'vue';
-import bg from '@/assets/img/base/bg.png'
-import logo from '@/assets/img/login/logo.png'
+
 import { usePopup } from '@/stores/usePopup';
 import user from './user.vue'
+import { imgUrl } from '@/utils/config';
 type IProps = {
   img?: string;
   showBg?: boolean;
@@ -56,7 +56,7 @@ const { popup } = storeToRefs(store)
 
 
 const props = withDefaults(defineProps<IProps>(), {
-  img: bg,
+  img: imgUrl + 'bg.png',
   showBg: true,
   showLogo: true,
   showPopup: false,
