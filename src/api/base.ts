@@ -1,8 +1,8 @@
 import { def } from "@vue/shared";
 
 // import axios from 'axios';
-const baseUrl = import.meta.env.VITE_ADMIN_PROXY_PATH
-
+// const baseUrl = import.meta.env.VITE_ADMIN_PROXY_PATH
+const baseUrl = 'http://114.67.231.163:8080/api'
 console.log(baseUrl);
 
 enum CODELIST {
@@ -161,7 +161,7 @@ function intercept() {
 
 
 
-			if (!res.data.success) {
+			if (!res?.data?.success) {
 				uni.showToast({
 					title: res.data.msg,
 					icon: 'none',
@@ -189,7 +189,7 @@ async function baseRequest(params: UniNamespace.RequestOptions, option?: IBaseRe
 		uni.request({
 			...params,
 			success: (res) => {
-			
+
 
 				resolve(res)
 			},

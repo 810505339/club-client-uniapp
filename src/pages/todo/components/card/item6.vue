@@ -15,9 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import cardIcon from '@/assets/img/todo/card_6.png'
 import lechart from '@/components/lechart/index.vue'
 import { useStackedChatOptions } from '@/utils/eCharts/stackedChat';
+import { imgUrl } from '@/utils/config';
+const cardIcon = imgUrl + 'card_6.png'
 const props = defineProps<{
   data: any
 }>();

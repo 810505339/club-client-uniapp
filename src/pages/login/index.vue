@@ -1,13 +1,10 @@
 <template>
   <view class="h-[100vh] w-[100vw] fixed  z-10 inset-0">
-    <image :src="bg" class="absolute inset-0" />
-
-
-
+    <image :src="imgUrl + 'loginBg.png'" class="absolute inset-0" />
     <view class="absolute left-5 right-5  top-1/2 -translate-y-1/2">
       <view class=" z-0  h-11 flex flex-row items-center  mb-5">
         <view class="w-[61px] h-[32px] mx-2.5">
-          <image :src="logo" />
+          <image :src="imgUrl + 'logo.png'" />
         </view>
         <view>
           <text class="text-4xl text-white">{{ t('login.title') }}</text>
@@ -42,18 +39,15 @@
 </template>
 
 <script setup lang="ts">
-import logo from '@/assets/img/login/logo.png'
-import bg from '@/assets/img/login/bg.png'
 import { useI18n } from 'vue-i18n';
 import { useUserInfo } from '@/stores/useInfo'
-import { sendYzmApi } from '@/api/login';
-
+import { imgUrl } from '@/utils/config';
 
 /* ref */
 const { t } = useI18n()
 const showPassword = ref(false)
 const store = useUserInfo()
-const { userInfo } = storeToRefs(store)
+
 
 
 
@@ -108,4 +102,3 @@ image {
   height: 100%;
 }
 </style>
-

@@ -1,37 +1,54 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/todo/index"
+			"path": "tabs/todo"
 		},
 		{
-			"path": "pages/login/index"
+			"path": "tabs/home"
 		},
 		{
-			"path": "pages/dashboard/index"
+			"path": "tabs/dashboard"
+		}
+	],
+	"subPackages": [
+		{
+			"root": "pages/home",
+			"pages": [
+				{
+					"path": "result"
+				},
+				{
+					"path": "info"
+				}
+			]
 		},
 		{
-			"path": "pages/dashboard/radio"
+			"root": "pages/dashboard",
+			"pages": [
+				{
+					"path": "coupons"
+				},
+				{
+					"path": "fight"
+				},
+				{
+					"path": "refund"
+				},
+				{
+					"path": "radio"
+				},
+				{
+					"path": "order"
+				}
+			]
 		},
 		{
-			"path": "pages/home/index"
-		},
-		{
-			"path": "pages/home/result"
-		},
-		{
-			"path": "pages/home/info"
-		},
-		{
-			"path": "pages/dashboard/order"
-		},
-		{
-			"path": "pages/dashboard/coupons"
-		},
-		{
-			"path": "pages/dashboard/fight"
-		},
-		{
-			"path": "pages/dashboard/refund"
+			"root": "pages/login",
+			"pages": [
+				{
+					"path":"index"
+				}
+			]
 		}
 	],
 	"globalStyle": {
@@ -44,17 +61,17 @@
 		"backgroundColor": "#0B0B0B",
 		"list": [
 			{
-				"pagePath": "pages/home/index",
+				"pagePath": "tabs/home",
 				"iconPath": "static/img/tabbar/icon.png",
 				"selectedIconPath": "static/img/tabbar/active_icon.png"
 			},
 			{
-				"pagePath": "pages/todo/index",
+				"pagePath": "tabs/todo",
 				"iconPath": "static/img/tabbar/icon_1.png",
 				"selectedIconPath": "static/img/tabbar/active_icon_1.png"
 			},
 			{
-				"pagePath": "pages/dashboard/index",
+				"pagePath": "tabs/dashboard",
 				"iconPath": "static/img/tabbar/icon_2.png",
 				"selectedIconPath": "static/img/tabbar/active_icon_2.png"
 			}
@@ -67,6 +84,5 @@
 		// 	"^up-(.*)": "@/uni_modules/uview-plus/components/u-$1/u-$1.vue",
 		// 	"^u-([^-].*)": "@/uni_modules/uview-plus/components/u-$1/u-$1.vue"
 		// },
-	},
-	""
+	}
 }

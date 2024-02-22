@@ -15,11 +15,13 @@
 </template>
 
 <script setup lang="ts">
-import cardIcon from '@/assets/img/todo/card_4.png'
+
 import useEcharts from '@/utils/eCharts/useEcharts';
 import lechart from '@/components/lechart/index.vue';
 import usePieOptions from '@/utils/eCharts/pie';
 import usehorizontalBarOptions from '@/utils/eCharts/horizontalBar';
+import { imgUrl } from '@/utils/config';
+const cardIcon = imgUrl + 'card_4.png'
 const props = defineProps<{
   data: any
 }>();

@@ -55,6 +55,9 @@ export default function useList(state: Ref<IState>) {
   }
 
   async function refresh() {
+    if (formData.value.loading) {
+      return
+    }
     formData.value = { ...defaultFormData }
     console.log(formData.value);
 

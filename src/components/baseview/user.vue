@@ -10,7 +10,6 @@
 
 <script setup lang="ts">
 import { useUserInfo } from '@/stores/useInfo';
-
 const userStore = useUserInfo()
 const { userInfo } = storeToRefs(userStore)
 console.log(userInfo.value, 'user组件');

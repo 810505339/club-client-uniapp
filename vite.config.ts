@@ -7,6 +7,8 @@ import commonjs from "@rollup/plugin-commonjs";
 import { UnifiedViteWeappTailwindcssPlugin as uvtw } from 'weapp-tailwindcss/vite'
 import { WeappTailwindcssDisabled } from './platform'
 import { plugins as postcssPlugins } from './postcss.config.cjs'
+import viteCompression from 'vite-plugin-compression'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   // uvtw 一定要放在 uni 后面
@@ -22,7 +24,7 @@ export default defineConfig({
         enabled: true
       }
     }),
-    commonjs()
+    commonjs(),
     // uni-app vite 中不起作用，不知道为啥
     // Components({
     //   dts: './src/components.d.ts'
