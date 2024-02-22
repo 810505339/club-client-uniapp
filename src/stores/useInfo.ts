@@ -11,11 +11,15 @@ export const useUserInfo = defineStore('useUserInfo', () => {
 		// time: 0,
 		// roles: [],
 		// authBtnList: [],
-		fileCommonUrl: ''
+		fileCommonUrl: '',
+		access_token: '',
+		refresh_token: ''
 	})
 
 	onMounted(async () => {
 		const userInfo_ = await uni.getStorageSync('token')
+		console.log(userInfo_, 'userinfo_');
+
 		userInfo.value = { ...userInfo_ }
 	})
 
@@ -28,14 +32,20 @@ export const useUserInfo = defineStore('useUserInfo', () => {
 		const { access_token, refresh_token } = await loginApi(data)
 
 		/* 设置头像跟名称 */
-		await setUserInfo()
+		const res = await getUserInfo()
+		const url = await getCommonFileUrl()
+		userInfo.value = {
+			fileCommonUrl: url,
+			photo: url + res.sysUser?.avatar,
+			userName: res.sysUser?.name,
+			access_token,
+			refresh_token
+		}
 
 
 		/* 登录储存token和用户信息 */
-		uni.setStorageSync('token', {
+		await uni.setStorageSync('token', {
 			...userInfo.value,
-			access_token,
-			refresh_token,
 		})
 
 
@@ -48,15 +58,7 @@ export const useUserInfo = defineStore('useUserInfo', () => {
 
 	}
 
-	async function setUserInfo() {
-		const res = await getUserInfo()
-		const url = await getCommonFileUrl()
-		userInfo.value = {
-			fileCommonUrl: url,
-			photo: url + res.sysUser?.avatar,
-			userName: res.sysUser?.name
-		}
-	}
+
 
 
 

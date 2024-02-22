@@ -10,7 +10,7 @@ type IState = {
 
 const defaultFormData = {
   current: 1,
-  size: 3,
+  size: 10,
   loading: false, //是否正在加载
   finished: false, // 是否全部加载完成
   empty: false,

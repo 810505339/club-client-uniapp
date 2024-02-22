@@ -41,6 +41,8 @@ import bg from '@/assets/img/base/bg.png'
 import logo from '@/assets/img/login/logo.png'
 import { usePopup } from '@/stores/usePopup';
 import user from './user.vue'
+
+import { onPageScroll } from '@dcloudio/uni-app'
 type IProps = {
   img?: string;
   showBg?: boolean;
@@ -83,9 +85,9 @@ onMounted(() => {
 
 })
 
-
+/* 加载到底部 */
 const scrolltolower = () => {
-  console.log(refresher);
+
   emit('loadMore')
 
 }
@@ -95,6 +97,11 @@ const refresherrefresh = async () => {
   await emit('refresh')
   refresher.value = false;
 }
+
+// onPageScroll((e) => {
+//   console.log(e.scrollTop, 111);
+
+// })
 
 
 </script>

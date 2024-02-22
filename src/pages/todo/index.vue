@@ -94,7 +94,7 @@
         <CardItem3 class="w-full" :data="resList[2]" />
         <CardItem4 class="w-full" :data="resList[3]" />
         <CardItem5 class="w-full" :data="resList[4]" />
-          <CardItem6 class="w-full" :data="resList[5]" />
+        <CardItem6 class="w-full" :data="resList[5]" />
       </view>
 
     </view>

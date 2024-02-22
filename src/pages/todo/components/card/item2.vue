@@ -4,7 +4,7 @@
       <image :src="cardIcon" />
     </view>
     <view class="text-base font-semibold px-6">酒水套餐排行榜</view>
-    <view class="mt-5 px-6">
+    <view class="mt-5 px-6" v-if="data.length > 0">
       <view v-for="item, index in data" :key="index" class="flex justify-center items-center">
         <text class="bg-[#EBB77F]  h-4 py-1 px-1.5 rounded-lg flex items-center   text-[#000000] text-xs">No.{{
           index + 1
@@ -14,6 +14,10 @@
         </view>
         <text class="flex-shrink-0 font-bold text-lg text-white ml-4">{{ item?.count }} 次</text>
       </view>
+    </view>
+
+    <view v-else class="flex items-center justify-center w-full h-full">
+      <text>暂无数据</text>
     </view>
 
   </view>

@@ -11,10 +11,7 @@
     <view class="text-xs font-semibold">流水总计
       <text class="text-white text-2xl ml-2">$ {{ data?.saleTotalAmount }}</text>
     </view>
-    <cover-view class="flex-auto ">
-      <lechart ref="chart" class="w-full h-full"></lechart>
-    </cover-view>
-
+    <lechart ref="chart" class="flex-auto "></lechart>
   </view>
 </template>
 
