@@ -27,20 +27,19 @@ export const useUserInfo = defineStore('useUserInfo', () => {
 		data.scope = 'server';
 		const { access_token, refresh_token } = await loginApi(data)
 
-		/* 设置头像跟名称 */
-		await setUserInfo()
-
 
 		/* 登录储存token和用户信息 */
 		uni.setStorageSync('token', {
-			...userInfo.value,
 			access_token,
 			refresh_token,
 		})
 
 
-		/* 登录成功跳转 */
+		/* 设置头像跟名称 */
+		await setUserInfo()
 
+
+		/* 登录成功跳转 */
 		uni.switchTab({
 			url: '/tabs/home'
 		})
@@ -53,8 +52,8 @@ export const useUserInfo = defineStore('useUserInfo', () => {
 		const url = await getCommonFileUrl()
 		userInfo.value = {
 			fileCommonUrl: url,
-			photo: url + res.sysUser?.avatar,
-			userName: res.sysUser?.name
+			photo: url + '/' + res.sysUser?.avatar,
+			userName: res.sysUser?.username
 		}
 	}
 
@@ -62,5 +61,5 @@ export const useUserInfo = defineStore('useUserInfo', () => {
 
 
 
-	return { userInfo, handleLogin, fileUrl }
+	return { userInfo, handleLogin, fileUrl, setUserInfo }
 })

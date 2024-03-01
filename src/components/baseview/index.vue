@@ -3,6 +3,7 @@
     <view catchtouchmove="true" v-if="showPopup">
       <uni-popup ref="popup" type="center">
         <slot name="popup" />
+        
       </uni-popup>
     </view>
     <view class="h-[100vh] w-[100vw] fixed  z-10 inset-0">
@@ -20,9 +21,9 @@
     </view>
     <view class="flex relative z-10">
 
-      <scroll-view scroll-y class="w-full relative z-10 " :style="contextHight" @scrolltolower="scrolltolower"
-        :refresher-enabled="refresherEnabled" :refresher-triggered="refresher" @refresherrefresh="refresherrefresh"
-        v-if="isScroll">
+      <scroll-view scroll-y :scroll-top="scrollTop.new" class="w-full relative z-10 " :style="contextHight"
+        @scrolltolower="scrolltolower" :refresher-enabled="refresherEnabled" :refresher-triggered="refresher"
+        @refresherrefresh="refresherrefresh" @scroll="scroll" :scroll-with-animation="true" v-if="isScroll">
         <user />
         <slot />
       </scroll-view>
@@ -31,13 +32,13 @@
         <slot />
       </view>
     </view>
-
+    <scroll-top-icon @click="goTop" v-show="scrollTop.old > 50" />
   </view>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref, defineProps, withDefaults, CSSProperties } from 'vue';
-
+import scrollTopIcon from './scroll-top.vue';
 import { usePopup } from '@/stores/usePopup';
 import user from './user.vue'
 import { imgUrl } from '@/utils/config';
@@ -71,6 +72,11 @@ const statusBarHeight = ref(0);
 
 
 const refresher = ref(false);
+const scrollTop = ref({
+  new: 0,
+  old: 0
+});
+
 
 const contextHight = computed(() => {
   return {
@@ -94,6 +100,17 @@ const refresherrefresh = async () => {
   refresher.value = true;
   await emit('refresh')
   refresher.value = false;
+}
+
+const scroll = (e) => {
+  scrollTop.value.old = e.detail.scrollTop
+}
+
+const goTop = () => {
+  scrollTop.value.new = scrollTop.value.old
+  nextTick(() => {
+    scrollTop.value.new = 0;
+  })
 }
 
 
