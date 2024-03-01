@@ -11,11 +11,15 @@ export const useUserInfo = defineStore('useUserInfo', () => {
 		// time: 0,
 		// roles: [],
 		// authBtnList: [],
-		fileCommonUrl: ''
+		fileCommonUrl: '',
+		access_token: '',
+		refresh_token: ''
 	})
 
 	onMounted(async () => {
 		const userInfo_ = await uni.getStorageSync('token')
+		console.log(userInfo_, 'userinfo_');
+
 		userInfo.value = { ...userInfo_ }
 	})
 

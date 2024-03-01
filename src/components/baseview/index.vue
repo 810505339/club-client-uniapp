@@ -89,9 +89,9 @@ onMounted(() => {
 
 })
 
-
+/* 加载到底部 */
 const scrolltolower = () => {
-  console.log(refresher);
+
   emit('loadMore')
 
 }
@@ -101,6 +101,11 @@ const refresherrefresh = async () => {
   await emit('refresh')
   refresher.value = false;
 }
+
+// onPageScroll((e) => {
+//   console.log(e.scrollTop, 111);
+
+// })
 
 const scroll = (e) => {
   scrollTop.value.old = e.detail.scrollTop
