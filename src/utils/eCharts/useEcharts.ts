@@ -1,4 +1,4 @@
-import * as echarts from '@/static/echarts.min.js';
+import * as echarts from '@/components/lechart/echarts.min.js';
 
 export default (option: any) => {
 
@@ -8,7 +8,7 @@ export default (option: any) => {
 
 
   onMounted(() => {
-    console.log(chart.value,'chart');
+    console.log(echarts,'echarts');
 
     chart.value.init(echarts, chart => {
       chart.setOption(option);

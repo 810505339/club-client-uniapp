@@ -1,5 +1,4 @@
-import { EChartsOption } from "echarts";
-import * as echarts from 'echarts';
+import * as echarts from '@/static/echarts.min.js';
 import { Ref } from "vue";
 
 type IData = Array<{ name: string, value: string }>

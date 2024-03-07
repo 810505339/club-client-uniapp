@@ -1,10 +1,10 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "tabs/todo"
+			"path": "tabs/home"
 		},
 		{
-			"path": "tabs/home"
+			"path": "tabs/todo"
 		},
 		{
 			"path": "tabs/dashboard"
@@ -46,7 +46,7 @@
 			"root": "pages/login",
 			"pages": [
 				{
-					"path":"index"
+					"path": "index"
 				}
 			]
 		}
@@ -66,15 +66,15 @@
 				"selectedIconPath": "static/img/tabbar/active_icon.png"
 			},
 			{
-				"pagePath": "tabs/todo",
+				"pagePath": "tabs/dashboard",
 				"iconPath": "static/img/tabbar/icon_1.png",
 				"selectedIconPath": "static/img/tabbar/active_icon_1.png"
 			},
 			{
-				"pagePath": "tabs/dashboard",
+				"pagePath": "tabs/todo",
 				"iconPath": "static/img/tabbar/icon_2.png",
 				"selectedIconPath": "static/img/tabbar/active_icon_2.png"
-			}
+			},
 		]
 	},
 	"easycom": {

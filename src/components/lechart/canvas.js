@@ -342,10 +342,14 @@ export function dispatch(name, {x,y, wheelDelta}) {
 	});
 }
 export function setCanvasCreator(echarts, {canvas, node}) {
-	// echarts.setCanvasCreator(() => canvas);
+	if(!echarts)
+	{
+		console.warn("未传入echarts")
+	}
 	if(echarts && !echarts.registerPreprocessor) {
 		return console.warn('echarts 版本不对或未传入echarts，vue3请使用esm格式')
 	}
+
 	echarts.registerPreprocessor(option => {
 		if (option && option.series) {
 			if (option.series.length > 0) {
