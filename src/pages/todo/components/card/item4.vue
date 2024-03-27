@@ -59,7 +59,7 @@ const { setOption: setSexOption } = usehorizontalBarOptions()
 
 
 const customerGender = computed(() => {
-  return props.data?.customerGenderVOS.map(c => ({
+  return props.data?.customerGenderVOS?.map(c => ({
     name: c.gender,
     data: [c.count]
   }))
