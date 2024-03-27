@@ -18,8 +18,8 @@
             class="h-24 bg-[#161616BF] my-2.5 rounded-xl flex items-center p-2.5">
             <view class="flex-auto h-full text-white font-normal">
               <view class="text-base font-semibold">{{ item.storeName }} - {{ item.areaName }}</view>
-              <view clas="text-base">{{ item.commodityName }}</view>
-              <view class="opacity-50 text-sm">
+              <view class="text-base my-5">{{ item.commodityName }}</view>
+              <view class="opacity-50 text-sm ">
                 <text class="mr-2.5">支付金额:</text>
                 <text>${{ item.orderAmount }}</text>
               </view>

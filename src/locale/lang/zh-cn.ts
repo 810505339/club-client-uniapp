@@ -6,7 +6,7 @@ export default {
   },
   home: {
     text: "门票核销",
-    text1: '你今日已核销门票',
+    text1: '今日已核销门票',
     text2: '张',
     text3: '开始扫码',
     text4: '核销记录',
