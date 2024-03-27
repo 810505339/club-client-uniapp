@@ -4,17 +4,18 @@
 
       <!-- <text class="text-xl text-white font-semibold ">{{ $t(`dashboard.text1`) }}</text> -->
       <u-tabs :list="tabList" :activeStyle="{
-        color: '#FFFFFFFF',
-      }" lineColor="#FFFFFFFF" :inactiveStyle="{
-  color: '#FFFFFFFF',
-  opacity: 0.5
+    color: '#FFFFFFFF',
+  }" lineColor="#FFFFFFFF" :inactiveStyle="{
+    color: '#FFFFFFFF',
+    opacity: 0.5
 
-}" @change="tabChange">
+  }" @change="tabChange">
       </u-tabs>
       <view class="mt-5">
 
         <ScList v-bind="formData">
-          <view v-for="item in list" :key="item.id" class="h-24 bg-[#161616BF] my-2.5 rounded-xl flex items-center p-2.5">
+          <view v-for="item in list" :key="item.id"
+            class="h-24 bg-[#161616BF] my-2.5 rounded-xl flex items-center p-2.5">
             <view class="flex-auto h-full text-white font-normal">
               <view class="text-base font-semibold">{{ item.storeName }} - {{ item.areaName }}</view>
               <view clas="text-base">{{ item.commodityName }}</view>
@@ -24,7 +25,7 @@
               </view>
             </view>
             <view @click="open(item)"
-              :class='`w-16  rounded-md h-full flex items-center justify-center text-white text-xs font-semibold ${btnStyle(item)}`'>
+              :class='`w-16 shrink-0  rounded-md h-full flex items-center justify-center text-white text-xs font-semibold ${btnStyle(item)}`'>
               {{ item.handleStatus == HANDLESTATUS.待处理 ? '确认' : '已处理' }}
             </view>
           </view>
@@ -108,7 +109,7 @@ function open(item: any) {
   console.log(item.handleStatus);
   popup.open('center')
   if (item.handleStatus == HANDLESTATUS.已处理) { return }
- 
+
 
 }
 
