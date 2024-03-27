@@ -3,7 +3,7 @@
     <view class="w-full h-[118rpx] relative">
       <image :src="imgUrl + 'header.png'" />
       <view class="absolute z-10 inset-0 flex justify-center items-center text-white text-lg font-semibold">
-        {{ t('base.title') }}
+        {{ title ?? t('base.title') }}
       </view>
     </view>
     <view class="bg-[#222222] p-5 rounded-b-[40rpx] overflow-hidden">
@@ -31,6 +31,9 @@
 import { useI18n } from 'vue-i18n';
 import { imgUrl } from '@/utils/config';
 const { t } = useI18n()
+defineProps<{
+  title?: string
+}>()
 const emits = defineEmits(['agree', 'disagree', 'changeTextarea'])
 const textarea = ref('')
 
