@@ -1,79 +1,79 @@
 export default {
   login: {
-    title: 'Manage Mini Programs',
-    login: 'login',
-    text: 'If you have forgotten your password, please contact your administrator to reset it'
+    title: 'Setting',
+    login: 'Log In',
+    text: 'If you forget your password, please contact the admin to retrieve and reset'
   },
   home: {
-    text: "Ticket cancellation",
-    text1: 'You have cancelled your tickets today',
+    text: "Ticket verification",
+    text1: 'Verified',
     text2: 'sheet',
-    text3: 'Start scanning the code',
-    text4: 'Write off records',
+    text3: 'Scanning QR Code',
+    text4: 'Verification record',
     info: {
       text: 'Ticket information',
       text1: 'region',
-      text2: 'Deck number',
-      text3: 'Number of tickets',
-      text4: 'Time when the order was placed',
-      text5: 'Ticket source',
-      text6: 'Write-off remarks',
-      btn: 'Verification'
+      text2: 'VIP Sofa Number',
+      text3: 'Ticket Quantity',
+      text4: 'Order Placement Time',
+      text5: 'Ticket Sources',
+      text6: 'Verification remark',
+      btn: 'Verifying'
     },
     result: {
-      text: 'Write-off results',
-      text1: 'The write-off is successful!',
-      text2: 'You have successfully cancelled',
+      text: 'Verification result',
+      text1: 'Successfully Verified!',
+      text2: 'Successfully Verified',
       text3: 'tickets',
-      text4: 'Write-off remarks',
-      btn: 'Return to the top page',
-      btn1: 'Continue to write-off',
+      text4: 'Verification remark',
+      btn: 'Return to home page',
+      btn1: 'Next',
     }
 
   },
   dashboard: {
-    text: 'dashboard',
-    text1: 'Pending orders',
-    text2: 'Spelling Bureau Review',
-    text3: 'Broadcast applications',
-    text4: 'Refund review',
-    text5: 'Coupon review',
+    text: 'Pending tasks',
+    text1: 'Outstanding orders',
+    text2: 'Leave a comment',
+    text3: 'Add a broadcast',
+    text4: 'Pending refund',
+    text5: 'Coupon verification',
     tag: 'piece',
     tag1: 'strip',
     fight: {
-      btn1: 'not passed',
-      btn2: 'pass'
+      btn1: 'Unsuccessful',
+      btn2: 'Successful'
     },
     radio: {
-      type: 'type'
+      type: 'Type'
     },
     refund: {
-      text1: 'refund amount:',
-      text2: 'refund no:',
-      text3: 'contact:',
-      text4: 'reason for refund:',
+      text1: 'Refund amount:',
+      text2: 'Refund ID:',
+      text3: 'Contact:',
+      text4: 'Reason for refund:',
       text5: 'applicant:',
-      text6: 'audit actions:',
+      text6: 'Applicant:',
       btn1: 'audit',
     },
     coupons: {
       text1: 'denomination:',
-      text2: 'date created:',
-      text3: 'valid until:',
+      text2: 'Starting date:',
+      text3: 'Expiry date:',
       text4: 'coupon issuance method:',
-      text5: 'created by:',
+      text5: 'Creator:',
       text6: 'audit actions:',
-      btn1: 'audit',
+      btn1: 'Verify',
     }
 
   },
   base: {
-    title: 'audit',
-    text: 'audit instructions'
+    title: 'Verify',
+    text: 'Verification details'
   },
   modal: {
-    btn1: '确定',
-    btn2: '取消',
+    btn1: 'Confirm',
+    btn2: 'Cancel',
     title: '操作',
     context: '是否进行此操作?'
   }
