@@ -15,17 +15,17 @@
 
         <ScList v-bind="formData">
           <view v-for="item in list" :key="item.id"
-            class="h-24 bg-[#161616BF] my-2.5 rounded-xl flex items-center p-2.5">
+            class="min-h-24 bg-[#161616BF] my-2.5 rounded-xl flex items-center p-2.5">
             <view class="flex-auto h-full text-white font-normal">
               <view class="text-base font-semibold">{{ item.storeName }} - {{ item.areaName }}</view>
-              <view class="text-base my-5">{{ item.commodityName }}</view>
+              <view class="text-base my-2">{{ item.commodityName }}</view>
               <view class="opacity-50 text-sm ">
                 <text class="mr-2.5">支付金额:</text>
                 <text>${{ item.orderAmount }}</text>
               </view>
             </view>
             <view @click="open(item)"
-              :class='`w-16 shrink-0  rounded-md h-full flex items-center justify-center text-white text-xs font-semibold ${btnStyle(item)}`'>
+              :class='`w-16 shrink-0  rounded-md h-full flex items-center justify-center text-white text-xs font-semibold ${btnStyle(item)} min-h-24`'>
               {{ item.handleStatus == HANDLESTATUS.待处理 ? '确认' : '已处理' }}
             </view>
           </view>

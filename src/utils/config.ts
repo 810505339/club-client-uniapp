@@ -1,1 +1,1 @@
-export const imgUrl = 'http://114.67.231.163:9000/club-system/'
+export const imgUrl = 'https://minio.point2club.com:9000/club-system/'

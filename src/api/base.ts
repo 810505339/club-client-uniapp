@@ -1,8 +1,7 @@
-import { def } from "@vue/shared";
 
 // import axios from 'axios';
 // const baseUrl = import.meta.env.VITE_ADMIN_PROXY_PATH
-const baseUrl = 'http://114.67.231.163:8080/api'
+const baseUrl = 'https://club-h5.point2club.com:30000/club-gateway/'
 console.log(baseUrl);
 
 enum CODELIST {

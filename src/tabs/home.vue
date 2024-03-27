@@ -12,8 +12,8 @@
         <view class="h-full flex flex-col justify-between p-4">
           <view><text class="text-[10px] text-white">{{ t('home.text1') }}</text></view>
           <view><text class="text-[#EE2737FF] text-4xl font-bold ">{{ number }}</text><text
-              class="text-[20px] text-white">{{
-                t('home.text2') }}</text></view>
+              class="text-[14px] text-white mr-2">{{
+    t('home.text2') }}</text></view>
         </view>
         <!-- 开始扫码 -->
         <view class="h-full w-[90px] flex flex-col justify-center items-center shadow-md  border-[#000000BF] border-l"
@@ -89,20 +89,21 @@ const ticketName = computed(() => {
 
 /* 点击开始扫码 */
 async function handleCheck() {
-  // uni.scanCode({
-  //   scanType: ['qrCode'],
-  //   success: (res) => {
-  //     console.log(res);
-  //   }
-  // })
-  // uni.navigateTo({
-  //   url: '/pages/home/info'
-  // })
-  await ticketCheck({
-    id: '1759123500481671170',
-    checkNumber: 1,
-    remark: '测试核销'
+  uni.scanCode({
+    scanType: ['qrCode'],
+    success: (res) => {
+      console.log(res);
+      // uni.navigateTo({
+      //   url: '/pages/home/info'
+      // })
+    }
   })
+
+  // await ticketCheck({
+  //   id: '1759123500481671170',
+  //   checkNumber: 1,
+  //   remark: '测试核销'
+  // })
 
 }
 

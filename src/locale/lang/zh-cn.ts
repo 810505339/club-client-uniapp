@@ -42,7 +42,7 @@ export default {
     tag: '个',
     tag1: '条',
     fight: {
-      btn1: '不通过',
+      btn1: '驳回',
       btn2: '通过'
     },
     radio: {
