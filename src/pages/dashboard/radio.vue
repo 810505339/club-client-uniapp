@@ -5,7 +5,7 @@
       <view class="mt-5">
 
         <ScList v-bind="formData">
-          <view v-for="item in list" class="bg-[#161616BF] rounded-xl my-5" :key="item.id">
+          <view v-for="item in list" class="bg-[#BF161616] rounded-xl my-5" :key="item.id">
             <card v-bind="reviewStatus(item)">
               <view>
                 <view
@@ -33,14 +33,14 @@
                 </view> -->
                 </view>
                 <view class="flex items-center justify-between px-2.5 pb-2.5" v-if="!reviewStatus(item).show">
-                  <button
-                    class="rounded-3xl bg-[#161616BF] m-0 h-10 w-36   border border-[#FFFFFF00]   text-white opacity-75  text-base flex items-center justify-center font-semibold"
+                  <button style="border-color:#FFFFFF33; "
+                    class="rounded-3xl bg-[rgba(255,255,255,0)] m-0 h-10 w-36   border    text-white opacity-75  text-base flex items-center justify-center font-semibold"
                     @click="action(item, AUDITSTATE.拒绝)">{{
-                      t('dashboard.fight.btn1') }}</button>
+    t('dashboard.fight.btn1') }}</button>
                   <button
                     class="rounded-3xl bg-[#EE2737FF] m-0 h-10  w-36   border-white border text-[ #000000]  text-base flex items-center justify-center font-semibold"
                     @click="action(item, AUDITSTATE.通过)">{{
-                      t('dashboard.fight.btn2') }}</button>
+    t('dashboard.fight.btn2') }}</button>
                 </view>
               </view>
             </card>
@@ -125,5 +125,4 @@ async function sure() {
 
 </script>
 
-<style>
-</style>
+<style></style>
