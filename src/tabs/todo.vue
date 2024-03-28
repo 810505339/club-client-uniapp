@@ -69,7 +69,10 @@ watch(() => [selectStore.value, ...range.value], async () => {
 })
 
 
+onPageScroll((e) => {
+  console.log(e.scrollTop, 111);
 
+})
 
 // 渲染完成
 const init = () => {

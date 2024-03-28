@@ -29,24 +29,36 @@ export const useUserInfo = defineStore('useUserInfo', () => {
 	async function handleLogin(data: any) {
 		data.grant_type = 'password';
 		data.scope = 'server';
-		const { access_token, refresh_token } = await loginApi(data)
+
+		try {
+			const res = await loginApi(data)
+			if (res.access_token) {
+				/* 登录储存token和用户信息 */
+				uni.setStorageSync('token', {
+					access_token: res.access_token,
+					refresh_token: res.refresh_token,
+				})
+
+				console.log(1)
+
+				/* 设置头像跟名称 */
+				await setUserInfo()
+
+				/* 登录成功跳转 */
+				uni.switchTab({
+					url: '/tabs/home'
+				})
+
+			}
 
 
-		/* 登录储存token和用户信息 */
-		uni.setStorageSync('token', {
-			access_token,
-			refresh_token,
-		})
 
 
-		/* 设置头像跟名称 */
-		await setUserInfo()
 
+		} catch (e) {
+			console.log(e)
+		}
 
-		/* 登录成功跳转 */
-		uni.switchTab({
-			url: '/tabs/home'
-		})
 
 
 	}

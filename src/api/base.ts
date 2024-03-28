@@ -157,15 +157,16 @@ function intercept() {
 		},
 		complete(res: any) {
 
-
-
-
-			if (!res?.data?.success) {
-				uni.showToast({
-					title: res.data.msg,
-					icon: 'none',
-					duration: 2000
-				})
+			if (res?.data?.access_token) {
+				return res
+			} else {
+				if (!res?.data?.success) {
+					uni.showToast({
+						title: res.data.msg,
+						icon: 'none',
+						duration: 2000
+					})
+				}
 			}
 
 			if (res.statusCode == CODELIST.TOKENCAN) {

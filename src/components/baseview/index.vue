@@ -1,9 +1,9 @@
 <template>
   <view class=" w-[100vw] relative bg-[#0b0b0b] overflow-scroll">
-    <view catchtouchmove="true" v-if="showPopup">
+    <view catchtouchmove="true">
       <uni-popup ref="popup" type="center">
+        <user-out v-if="userRef" v-model:userRef="userRef" />
         <slot name="popup" />
-        
       </uni-popup>
     </view>
     <view class="h-[100vh] w-[100vw] fixed  z-10 inset-0">
@@ -24,20 +24,22 @@
       <scroll-view scroll-y :scroll-top="scrollTop.new" class="w-full relative z-10 " :style="contextHight"
         @scrolltolower="scrolltolower" :refresher-enabled="refresherEnabled" :refresher-triggered="refresher"
         @refresherrefresh="refresherrefresh" @scroll="scroll" :scroll-with-animation="true" v-if="isScroll">
-        <user />
+        <user @click="userClick" />
         <slot />
       </scroll-view>
       <view class="w-full " v-else>
-        <user />
+        <user @click="userClick" />
         <slot />
       </view>
     </view>
     <scroll-top-icon @click="goTop" v-show="scrollTop.old > 50" />
+    <!-- <up-back-top :scroll-top="scrollTop.old"></up-back-top> -->
   </view>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref, defineProps, withDefaults, CSSProperties } from 'vue';
+import userOut from './user-out.vue'
 import scrollTopIcon from './scroll-top.vue';
 import { usePopup } from '@/stores/usePopup';
 import user from './user.vue'
@@ -102,21 +104,38 @@ const refresherrefresh = async () => {
   refresher.value = false;
 }
 
-// onPageScroll((e) => {
-//   console.log(e.scrollTop, 111);
+onPageScroll((e) => {
+  scrollTop.value.old = e.scrollTop
+  console.log(e.scrollTop, 111);
 
-// })
+})
 
 const scroll = (e) => {
   scrollTop.value.old = e.detail.scrollTop
 }
 
 const goTop = () => {
-  scrollTop.value.new = scrollTop.value.old
-  nextTick(() => {
-    scrollTop.value.new = 0;
+  /* 如果是scroll-view */
+  if (props.isScroll) {
+    scrollTop.value.new = scrollTop.value.old
+    nextTick(() => {
+      scrollTop.value.new = 0;
+    })
+  }
+
+
+  uni.pageScrollTo({
+    scrollTop: 0,   // 滚动到页面的目标位置  这个是滚动到顶部, 0 
+    duration: 300  // 滚动动画的时长
   })
+
 }
 
+const userRef = ref(false)
+/* 点击用户弹窗 */
+const userClick = () => {
+  store.open('center')
+  userRef.value = true;
+}
 
 </script>

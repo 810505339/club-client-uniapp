@@ -31,7 +31,7 @@
         <view class="flex-grow-1 mt-auto flex">
           <button @click="toNext"
             class="rounded-3xl bg-[#EE2737FF] h-10 w-full text-[#0C0C0C] text-base flex items-center justify-center">{{
-              t('login.login') }}</button>
+      t('login.login') }}</button>
         </view>
       </view>
     </view>
@@ -50,10 +50,10 @@ const store = useUserInfo()
 
 
 
-
+//admin  club.2023!!!
 const loginData = ref({
-  username: 'admin', // 用户名
-  password: 'club.2023!!!', // 密码
+  username: '', // 用户名
+  password: '', // 密码
   code: '', // 验证码
   randomStr: '', // 验证码随机数 
 })
@@ -74,7 +74,21 @@ function onChangeshowPassword() {
 /* 登录跳转 */
 async function toNext() {
 
+  if (!loginData.value.username) {
+    uni.showToast({
+      title: '请输入用户名',
+      icon: 'none'
+    })
+    return
+  }
 
+  if (!loginData.value.password) {
+    uni.showToast({
+      title: '请输入密码',
+      icon: 'none'
+    })
+    return
+  }
   store.handleLogin(loginData.value)
   // uni.switchTab({
   //   url: '/pages/home/index'
