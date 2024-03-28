@@ -1,13 +1,14 @@
 <template>
-  <view class="bg-[#EE2737] w-32px h-32px rounded-full fixed scroll-top" @click="scrollTop">
-    <uni-icons type="arrow-up" size="30"></uni-icons>
+  <view class="bg-[#EE2737]  p-[8px] rounded-[999999px] fixed scroll-top" @click="scrollTop">
+    <image class="w-[16px] h-[16px]  block" :src="backTop" />
   </view>
 </template>
 
 <script setup lang="ts">
+import backTop from '@/static/img/back-top.png'
 const emits = defineEmits(["click"]);
 const scrollTop = () => {
- 
+
   emits("click");
 }
 </script>
