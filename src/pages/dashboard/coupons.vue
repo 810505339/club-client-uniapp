@@ -60,7 +60,7 @@ import card from './components/card.vue'
 import { reviewStatus, AUDITSTATE } from './hooks/reviewStatus'
 const formState = ref({
   params: {
-    status: 'USED'
+    auditState: 'IN_AUDIT'
   },
   load: getCouponList
 })
