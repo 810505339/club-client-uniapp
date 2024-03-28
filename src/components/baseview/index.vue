@@ -103,10 +103,10 @@ const refresherrefresh = async () => {
   refresher.value = false;
 }
 
-// onPageScroll((e) => {
-//   console.log(e.scrollTop, 111);
+onPageScroll((e) => {
+  console.log(e.scrollTop, 111);
 
-// })
+})
 
 const scroll = (e) => {
   scrollTop.value.old = e.detail.scrollTop
