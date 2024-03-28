@@ -33,6 +33,7 @@
       </view>
     </view>
     <scroll-top-icon @click="goTop" v-show="scrollTop.old > 50" />
+    <!-- <up-back-top :scroll-top="scrollTop.old"></up-back-top> -->
   </view>
 </template>
 
@@ -104,6 +105,7 @@ const refresherrefresh = async () => {
 }
 
 onPageScroll((e) => {
+  scrollTop.value.old = e.scrollTop
   console.log(e.scrollTop, 111);
 
 })
@@ -113,10 +115,20 @@ const scroll = (e) => {
 }
 
 const goTop = () => {
-  scrollTop.value.new = scrollTop.value.old
-  nextTick(() => {
-    scrollTop.value.new = 0;
+  /* 如果是scroll-view */
+  if (props.isScroll) {
+    scrollTop.value.new = scrollTop.value.old
+    nextTick(() => {
+      scrollTop.value.new = 0;
+    })
+  }
+
+
+  uni.pageScrollTo({
+    scrollTop: 0,   // 滚动到页面的目标位置  这个是滚动到顶部, 0 
+    duration: 300  // 滚动动画的时长
   })
+
 }
 
 const userRef = ref(false)
