@@ -5,11 +5,11 @@
       <text class="text-xl text-white">{{ $t('dashboard.text5') }}</text>
       <view class="mt-5">
         <ScList v-bind="formData">
-          <view v-for="item in list" class="bg-[#161616BF] rounded-xl my-5" :key="item.id">
+          <view v-for="item in list" class=" rounded-xl my-5" :key="item.id">
             <card v-bind="reviewStatus(item)">
               <view>
                 <view class="p-2.5  flex flex-col justify-between">
-                  <view class="text-white text-2xl font-normal flex items-center justify-between text-ellipsis">
+                  <view class="text-white text-[16px] font-bold flex items-center justify-between text-ellipsis">
                     <!-- <view class="bg-violet-500 h-6 w-6 rounded-full"></view>
                 <view class="text-overflow flex-auto mx-2.5">{{item.createBy}}</view>
                 <view class="opacity-25">{{ item.createTime }}</view> -->
@@ -26,9 +26,10 @@
                       </view>
                     </view>
                   </view>
-                  <view class="absolute  bottom-2.5 right-2.5">
+                  <view class="flex flex-row items-center  justify-between mt-2">
+                    <text class="text-xs opacity-50  min-w-16 font-light">{{ t('dashboard.coupons.text6') }}</text>
                     <button @click="handleClick(item)"
-                      class="rounded-3xl bg-[#EE2737FF] m-0 h-10  border-white border text-[ #000000]  text-base flex items-center justify-center font-semibold">{{
+                      class="rounded-3xl bg-[#EE2737FF] m-0 h-10   text-[ #000000]  text-base flex items-center justify-center font-semibold">{{
     t('dashboard.refund.btn1') }}</button>
                   </view>
 
@@ -43,7 +44,7 @@
 
     </view>
     <template v-slot:popup>
-      <popup @disagree="disagree" @agree="agree" :title="'1'" />
+      <popup @disagree="disagree" @agree="agree" :title="'优惠券审核'" btn1="驳回" btn2="通过" />
     </template>
   </base-view>
 </template>
@@ -98,7 +99,7 @@ const state = ref({
       }, key: 'issueWay'
     },
     { label: 'dashboard.coupons.text5', value: defaultValue, key: 'createBy' },
-    { label: 'dashboard.coupons.text6', value: () => { }, },
+    // { label: '', value: () => { }, },
   ]
 })
 

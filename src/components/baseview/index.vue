@@ -1,9 +1,9 @@
 <template>
   <view class=" w-[100vw] relative bg-[#0b0b0b] overflow-scroll">
     <view catchtouchmove="true" v-if="showPopup">
-      <uni-popup ref="popup" type="center">
+      <uni-popup ref="popup" type="center" mask-background-color="rgba(0,0,0,0.75)">
         <slot name="popup" />
-        
+
       </uni-popup>
     </view>
     <view class="h-[100vh] w-[100vw] fixed  z-10 inset-0">
