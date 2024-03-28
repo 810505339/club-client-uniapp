@@ -60,7 +60,7 @@ import card from './components/card.vue'
 import { reviewStatus, AUDITSTATE } from './hooks/reviewStatus'
 const formState = ref({
   params: {
-    status: 'USED'
+    status: 'IN_AUDIT'
   },
   load: getCouponList
 })
@@ -107,13 +107,13 @@ const { t } = useI18n()
 
 const store = usePopup()
 
-console.log(store);
+
 
 function handleClick(item: any) {
   console.log(store);
 
   store.open('center')
-  // clickItem.value = item
+
 }
 
 function disagree(value: string) {
