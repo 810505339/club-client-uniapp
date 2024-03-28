@@ -21,7 +21,10 @@ export const couponAudit = async (params: any) => {
   const { data } = await baseRequest({
     url: '/operation/coupon/couponAudit',
     method: 'PUT',
-    data: params,
+    data: {
+      ...params,
+      couponId: params.id
+    },
     header: {
       showMsg: 'true'
     }

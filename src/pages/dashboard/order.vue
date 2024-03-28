@@ -65,15 +65,15 @@ import { usePopup } from '@/stores/usePopup'
 import modal from './components/modal.vue'
 
 enum HANDLESTATUS {
-  待处理 = 'WAIT_HANDLE',
-  已处理 = 'WAIT_HANDLE',
+  待处理 = 'false',
+  已处理 = 'true'
 }
 
 const popup = usePopup()
 
 const formState = ref({
   params: {
-    handleStatus: HANDLESTATUS.待处理
+    isHandle: HANDLESTATUS.待处理
   },
   load: getOrderList
 })

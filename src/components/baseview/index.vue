@@ -139,3 +139,8 @@ const userClick = () => {
 }
 
 </script>
+<style scoped lang="scss">
+.bg-navbar {
+  background-color: black;
+}
+</style>

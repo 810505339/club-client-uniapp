@@ -94,19 +94,19 @@ const init = () => {
 }
 
 :deep(.uni-datetime-picker--btn) {
-  background-color: #EE2737FF !important;
+  background-color: #04BE02 !important;
 }
 
 :deep(.uni-calendar-item__weeks-box .uni-calendar-item--checked) {
-  background-color: #EE2737FF !important;
+  background-color: #04BE02 !important;
 }
 
 :deep(.uni-calendar-item--multiple .uni-calendar-item--before-checked, .uni-calendar-item--multiple .uni-calendar-item--after-checked) {
-  background-color: #EE2737FF !important;
+  background-color: #04BE02 !important;
 }
 
 :deep(.uni-calendar-item--after-checked) {
-  background-color: #EE2737FF !important;
+  background-color: #04BE02 !important;
 }
 
 :deep(.uni-calendar-item--multiple .uni-calendar-item--before-checked, .uni-calendar-item--multiple .uni-calendar-item--after-checked) {

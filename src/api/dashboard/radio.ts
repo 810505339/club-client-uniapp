@@ -21,9 +21,14 @@ export const broadcastAudit = async (params: any) => {
   const { data } = await baseRequest({
     url: '/operation/broadcast/broadcastAudit',
     method: 'PUT',
-    data: params
+    data: {
+      ...params,
+      broadcastId: params.id
+    }
+  }, {
+    msg: true
   })
 
-  return data.data
+  return data
 }
 

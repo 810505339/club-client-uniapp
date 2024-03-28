@@ -12,3 +12,19 @@ export const postRefundList = async (params: any) => {
 
   return data.data
 }
+
+
+export const refundAudit = async (params: any) => {
+  const { data } = await baseRequest({
+    method: 'POST',
+    url: '/consumption/refund/refundAudit',
+    data: {
+      ...params,
+      refundId: params.id
+    }
+  }, {
+    msg: true
+  })
+
+  return data
+}

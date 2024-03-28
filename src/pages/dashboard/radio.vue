@@ -66,6 +66,7 @@ import { useUserInfo } from '@/stores/useInfo'
 import { usePopup } from '@/stores/usePopup'
 import modal from './components/modal.vue'
 import { reviewStatus, AUDITSTATE } from './hooks/reviewStatus'
+import useTodo from './hooks/useTodo';
 
 
 const formState = ref({
@@ -75,19 +76,17 @@ const formState = ref({
   load: getRadioList
 })
 
-/* 记录点击的item */
-const clickItem = ref<any>({
 
-})
 
 const { list, refresh, getList, formData } = useList(formState)
+
 
 const { t } = useI18n()
 
 
 const userStore = useUserInfo()
-const popup = usePopup()
 
+const auditActionRef = ref<AUDITSTATE>(AUDITSTATE.拒绝)
 
 
 
@@ -100,28 +99,22 @@ const avatar = computed(() => {
   }
 })
 
-
+const { handleClick, agree, disagree } = useTodo(broadcastAudit, refresh)
 /* 点击按钮动作:通过驳回 */
 const action = async (item: any, auditAction: AUDITSTATE) => {
-  popup.open('center')
-  //弹窗
-  clickItem.value = item
-  /* 记录操作 */
-  clickItem.value.actionAuditAction = auditAction
+  handleClick(item)
+  auditActionRef.value = auditAction
 }
 
-/* 点击同意or不同意 弹窗  确认按钮 */
-async function sure() {
-  await broadcastAudit({
-    broadcastId: clickItem.value.id,
-    auditAction: clickItem.value.actionAuditAction,
-    taskId: clickItem.value.taskId
-  })
-  /* 请求成功以后刷新列表 */
-  refresh()
-  // console.log(res);
-}
 
+function sure() {
+  if (auditActionRef.value === AUDITSTATE.通过) {
+    agree('1')
+  }
+  if (auditActionRef.value === AUDITSTATE.拒绝) {
+    disagree('1')
+  }
+}
 
 </script>
 

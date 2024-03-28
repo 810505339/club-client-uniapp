@@ -59,19 +59,18 @@ import useList from '@/hooks/useList';
 import ScList from '@/components/list/index.vue'
 import card from './components/card.vue'
 import { reviewStatus, AUDITSTATE } from './hooks/reviewStatus'
+
+import useTodo from './hooks/useTodo'
 const formState = ref({
   params: {
     auditState: 'IN_AUDIT'
   },
   load: getCouponList
 })
-
+const { t } = useI18n()
 const { list, refresh, getList, formData } = useList(formState)
 
-
-/* 记录点击的item */
-const clickItem = ref<any>(null)
-
+const { handleClick, disagree, agree } = useTodo(couponAudit, refresh)
 
 function defaultValue(item: any, info: any) {
   return `${item[info.key]}`
@@ -100,63 +99,6 @@ const state = ref({
     // { label: '', value: () => { }, },
   ]
 })
-
-
-const { t } = useI18n()
-
-const store = usePopup()
-
-
-
-function handleClick(item: any) {
-
-  clickItem.value = item
-  store.open('center')
-
-}
-
-function disagree(value: string) {
-  console.log(value);
-  handleCheck(value, 'REJECT')
-
-}
-
-function agree(value: string) {
-  console.log(value);
-  handleCheck(value, 'PASS')
-}
-
-async function handleCheck(remark: string, auditAction: string) {
-  if (!remark) {
-    uni.showToast({
-      icon: 'none',
-      title: '请输入审核说明'
-    })
-    return
-  }
-
-  if (clickItem.value) {
-    const res = await couponAudit({
-      couponId: clickItem.value.id,
-      reqDTO: {
-        taskId: clickItem.value.taskId,
-        auditAction,
-        remark,
-      }
-    })
-
-    if (res.success) {
-      store.close()
-      refresh()
-    }
-
-
-
-  }
-
-  console.log(clickItem);
-
-}
 
 
 </script>

@@ -25,7 +25,7 @@
                     </view>
                   </view>
                   <view class="absolute  bottom-2.5 right-2.5">
-                    <button
+                    <button @click="handleClick(item)"
                       class="rounded-3xl bg-[#EE2737FF] m-0 h-10  border-white border text-[ #000000]  text-base flex items-center justify-center font-semibold">{{
     t('dashboard.refund.btn1') }}</button>
                   </view>
@@ -41,23 +41,23 @@
       </view>
     </view>
     <template v-slot:popup>
-      <!-- <popup @disagree="disagree" @agree="agree" @changeTextarea="changeTextarea" /> -->
-
+      <popup @disagree="disagree" @agree="agree" :title="'退款审核'" btn1="驳回" btn2="通过" />
     </template>
   </base-view>
 </template>
 
 <script setup lang="ts">
 import baseView from '@/components/baseview/index.vue'
-import { usePopup } from '@/stores/usePopup';
 import { useI18n } from 'vue-i18n';
-import { postRefundList } from '@/api/dashboard/refund'
+import { postRefundList, refundAudit } from '@/api/dashboard/refund'
 import useList from '@/hooks/useList';
 import ScList from '@/components/list/index.vue'
 import card from './components/card.vue'
 import { reviewStatus, AUDITSTATE } from './hooks/reviewStatus'
+import popup from '@/components/popup/index.vue'
+import useTodo from './hooks/useTodo';
 
-// import uTabs from 'uview-plus/components/u-tabs/u-tabs.vue'
+
 const formState = ref({
   params: {
 
@@ -80,5 +80,8 @@ const state = ref({
   ]
 })
 const { t } = useI18n()
-const store = usePopup()
+
+const { handleClick, disagree, agree } = useTodo(refundAudit, refresh)
+
+
 </script>

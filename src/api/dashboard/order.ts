@@ -8,7 +8,7 @@ import { baseRequest } from "../base"
 export const getOrderList = async (params: any) => {
   const { data } = await baseRequest({
     method: 'GET',
-    url: '/consumption/orderManage/page',
+    url: '/consumption/orderManage/handle/page',
     data: params
   })
 

@@ -8,10 +8,11 @@
         <view class="absolute boxicon z-10 left-0 bottom-0">
           <image :src="imgUrl + 'box.png'" mode="heightFix" />
         </view>
-        <view class="h-full flex flex-col justify-between p-4">
-          <view><text class="text-[10px] text-white">{{ t('home.text1') }}</text></view>
-          <view><text class="text-[#EE2737FF] text-4xl font-bold ">{{ number }}</text><text
-              class="text-[10px] text-white ml-2">{{ t('home.text2') }}</text>
+        <view class="h-full flex flex-col justify-between p-4 text-right">
+          <view><text class="text-[10px] text-white ">{{ t('home.text1') }}</text></view>
+          <view class=" text-right">
+            <text class="text-[#EE2737FF] text-4xl font-bold ">{{  number }}</text>
+            <text class="text-[10px] text-white ml-2">{{ t('home.text2') }}</text>
           </view>
         </view>
         <!-- 开始扫码 -->
