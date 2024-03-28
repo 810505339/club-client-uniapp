@@ -26,7 +26,7 @@
             </view>
             <view @click="open(item)"
               :class='` ml-[10px] w-16 shrink-0  rounded-md h-full flex items-center justify-center text-white text-xs font-semibold ${btnStyle(item)} min-h-24`'>
-              {{ item.handleStatus == HANDLESTATUS.待处理 ? '确认' : '已处理' }}
+              {{ formState.params.isHandle == HANDLESTATUS.待处理 ? '确认' : '已处理' }}
             </view>
           </view>
         </ScList>
@@ -81,6 +81,7 @@ const { list, refresh, getList, formData } = useList(formState)
 
 
 
+
 const tabList = ref([
   {
     name: '待处理',
@@ -93,22 +94,22 @@ const tabList = ref([
 async function tabChange(tabItem: any) {
   console.log(tabItem.index);
   formState.value.params = {
-    handleStatus: tabItem.index === 0 ? HANDLESTATUS.待处理 : HANDLESTATUS.已处理
+    isHandle: tabItem.index === 0 ? HANDLESTATUS.待处理 : HANDLESTATUS.已处理
   }
   await refresh()
 
 }
 
-const btnStyle = (item: any) => {
-  return item.handleStatus == HANDLESTATUS.已处理 ? `bg-[#EE2737FF]` : `bg-[#161616BF]`
+const btnStyle = () => {
+  return formState.value.params.isHandle == HANDLESTATUS.待处理 ? `bg-[#EE2737FF]` : `bg-[#161616BF]`
 }
 
 /* 确认未确认弹窗 */
 
 function open(item: any) {
-  console.log(item.handleStatus);
+  console.log(item.isHandle);
   popup.open('center')
-  if (item.handleStatus == HANDLESTATUS.已处理) { return }
+  if (item.isHandle == HANDLESTATUS.已处理) { return }
 
 
 }

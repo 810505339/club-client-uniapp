@@ -10,16 +10,15 @@
       <image :src="img" class="absolute inset-0" v-if="showBg" />
     </view>
     <!-- 自定义导航栏 -->
-    <view :style="{ marginTop: statusBarHeight + 'px' }" class="h-12">
-      <!-- 真正的导航栏内容 -->
-      <view class="h-12 flex items-center w-full fixed z-40">
-        <view class="h-8 mx-2.5" v-if="showLogo">
-          <image :src="imgUrl + 'logo.png'" mode="heightFix" />
-        </view>
-        <slot name="navBar" />
+    <!-- 真正的导航栏内容 -->
+    <view :style="{ paddingTop: statusBarHeight + 'px' }" class="h-24  flex items-center w-full fixed z-40"
+      :class="{ 'bg-navbar': scrollTop.old > 50 }">
+      <view class="h-8 mx-2.5" v-if="showLogo">
+        <image :src="imgUrl + 'logo.png'" mode="heightFix" />
       </view>
+      <slot name="navBar" />
     </view>
-    <view class="flex relative z-10">
+    <view class="flex relative z-10 pt-24">
 
       <scroll-view scroll-y :scroll-top="scrollTop.new" class="w-full relative z-10 " :style="contextHight"
         @scrolltolower="scrolltolower" :refresher-enabled="refresherEnabled" :refresher-triggered="refresher"
@@ -27,7 +26,7 @@
         <user @click="userClick" />
         <slot />
       </scroll-view>
-      <view class="w-full " v-else>
+      <view class="w-full relative " v-else>
         <user @click="userClick" />
         <slot />
       </view>
@@ -44,6 +43,10 @@ import scrollTopIcon from './scroll-top.vue';
 import { usePopup } from '@/stores/usePopup';
 import user from './user.vue'
 import { imgUrl } from '@/utils/config';
+import useCheckupdate from '@/hooks/useCheckupdate'
+/* 检测版本跟新 */
+useCheckupdate()
+
 type IProps = {
   img?: string;
   showBg?: boolean;
@@ -55,6 +58,7 @@ type IProps = {
 }
 
 const store = usePopup()
+
 const { popup } = storeToRefs(store)
 
 
@@ -82,7 +86,8 @@ const scrollTop = ref({
 
 const contextHight = computed(() => {
   return {
-    height: `calc(100vh - ${48 + statusBarHeight.value}px)`
+    height: `calc(100vh - ${80 + statusBarHeight.value}px)`
+
   }
 })
 
@@ -141,6 +146,6 @@ const userClick = () => {
 </script>
 <style scoped lang="scss">
 .bg-navbar {
-  background-color: black;
+  background-color: #47070C;
 }
 </style>
