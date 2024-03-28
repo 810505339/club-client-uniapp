@@ -29,6 +29,6 @@ export const couponAudit = async (params: any) => {
     msg: true
   })
 
-  return data.data
+  return data
 }
 

@@ -5,7 +5,7 @@
 
       <view class="mt-5">
         <ScList v-bind="formData">
-          <view v-for="item in state.list" class="bg-[#161616BF] rounded-xl my-5" :key="item.id">
+          <view v-for="item in list" class="bg-[#161616BF] rounded-xl my-5" :key="item.id">
             <card v-bind="reviewStatus({
     auditState: item.state
   })">

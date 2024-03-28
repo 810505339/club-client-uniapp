@@ -52,8 +52,8 @@ const store = useUserInfo()
 
 //admin  club.2023!!!
 const loginData = ref({
-  username: '', // 用户名
-  password: '', // 密码
+  username: 'admin', // 用户名
+  password: 'club.2023!!!', // 密码
   code: '', // 验证码
   randomStr: '', // 验证码随机数 
 })

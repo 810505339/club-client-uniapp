@@ -70,9 +70,7 @@ const { list, refresh, getList, formData } = useList(formState)
 
 
 /* 记录点击的item */
-const clickItem = ref<any>({
-
-})
+const clickItem = ref<any>(null)
 
 
 function defaultValue(item: any, info: any) {
@@ -111,8 +109,8 @@ const store = usePopup()
 
 
 function handleClick(item: any) {
-  console.log(store);
 
+  clickItem.value = item
   store.open('center')
 
 }
@@ -129,11 +127,35 @@ function agree(value: string) {
 }
 
 async function handleCheck(remark: string, auditAction: string) {
-  await couponAudit({
-    remark,
-    taskId: clickItem.value.taskId,
-    auditAction
-  })
+  if (!remark) {
+    uni.showToast({
+      icon: 'none',
+      title: '请输入审核说明'
+    })
+    return
+  }
+
+  if (clickItem.value) {
+    const res = await couponAudit({
+      couponId: clickItem.value.id,
+      reqDTO: {
+        taskId: clickItem.value.taskId,
+        auditAction,
+        remark,
+      }
+    })
+
+    if (res.success) {
+      store.close()
+      refresh()
+    }
+
+
+
+  }
+
+  console.log(clickItem);
+
 }
 
 
