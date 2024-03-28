@@ -32,12 +32,14 @@ export const useUserInfo = defineStore('useUserInfo', () => {
 
 		try {
 			const res = await loginApi(data)
-			if (res.success) {
+			if (res.access_token) {
 				/* 登录储存token和用户信息 */
 				uni.setStorageSync('token', {
 					access_token: res.access_token,
 					refresh_token: res.refresh_token,
 				})
+
+				console.log(1)
 
 				/* 设置头像跟名称 */
 				await setUserInfo()

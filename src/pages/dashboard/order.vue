@@ -25,7 +25,7 @@
               </view>
             </view>
             <view @click="open(item)"
-              :class='`w-16 shrink-0  rounded-md h-full flex items-center justify-center text-white text-xs font-semibold ${btnStyle(item)} min-h-24`'>
+              :class='` ml-[10px] w-16 shrink-0  rounded-md h-full flex items-center justify-center text-white text-xs font-semibold ${btnStyle(item)} min-h-24`'>
               {{ item.handleStatus == HANDLESTATUS.待处理 ? '确认' : '已处理' }}
             </view>
           </view>
