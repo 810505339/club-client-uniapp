@@ -7,7 +7,7 @@
     </view>
   </view>
 
-  <uni-popup catchtouchmove="true" ref="popup" type="center">
+  <uni-popup :catchtouchmove="true" ref="popup" type="center" class="popup">
     <view class="w-80">
       <view class="w-full h-[118rpx] relative flex items-center justify-center">
         <image :src="imgUrl + 'header.png'" class="absolute inset-0 -z-10" />
@@ -35,10 +35,14 @@
 
 <script setup lang="ts">
 import { useUserInfo } from '@/stores/useInfo';
+import { usePopup } from '@/stores/usePopup';
 import { imgUrl } from '@/utils/config';
 const userStore = useUserInfo()
 const { userInfo } = storeToRefs(userStore)
+const store = usePopup()
+const { popup: basePopup } = storeToRefs(store)
 const popup = ref(null)
+
 
 onMounted(async () => {
   await userStore.setUserInfo()
@@ -52,15 +56,19 @@ function error() {
 /* 点击退出 */
 function loginOut() {
   popup.value?.open('center')
+  basePopup.value.open('center')
+
   // uni.clearStorageSync()
 }
 /*  */
 function close() {
   popup.value?.close()
+  basePopup.value.close()
+
 }
 
 async function confirm() {
-  popup.value?.close()
+  close()
   await uni.clearStorageSync()
   uni.navigateTo({
     url: "/pages/login/index"
@@ -68,3 +76,5 @@ async function confirm() {
 }
 
 </script>
+
+<style scoped lang="scss"></style>
