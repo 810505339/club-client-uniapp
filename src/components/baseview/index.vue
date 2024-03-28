@@ -1,7 +1,8 @@
 <template>
   <view class=" w-[100vw] relative bg-[#0b0b0b] overflow-scroll">
-    <view catchtouchmove="true" v-if="showPopup">
+    <view catchtouchmove="true">
       <uni-popup ref="popup" type="center">
+        <user-out v-if="userRef" v-model:userRef="userRef" />
         <slot name="popup" />
       </uni-popup>
     </view>
@@ -23,11 +24,11 @@
       <scroll-view scroll-y :scroll-top="scrollTop.new" class="w-full relative z-10 " :style="contextHight"
         @scrolltolower="scrolltolower" :refresher-enabled="refresherEnabled" :refresher-triggered="refresher"
         @refresherrefresh="refresherrefresh" @scroll="scroll" :scroll-with-animation="true" v-if="isScroll">
-        <user />
+        <user @click="userClick" />
         <slot />
       </scroll-view>
       <view class="w-full " v-else>
-        <user v-if="popup" :popup="popup" />
+        <user @click="userClick" />
         <slot />
       </view>
     </view>
@@ -37,6 +38,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref, defineProps, withDefaults, CSSProperties } from 'vue';
+import userOut from './user-out.vue'
 import scrollTopIcon from './scroll-top.vue';
 import { usePopup } from '@/stores/usePopup';
 import user from './user.vue'
@@ -117,5 +119,11 @@ const goTop = () => {
   })
 }
 
+const userRef = ref(false)
+/* 点击用户弹窗 */
+const userClick = () => {
+  store.open('center')
+  userRef.value = true;
+}
 
 </script>
