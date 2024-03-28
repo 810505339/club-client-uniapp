@@ -2,7 +2,7 @@
   <base-view :show-popup="true" :refresherEnabled="true" @refresh="refresh" @loadMore="getList">
     <view class="p-5">
 
-      <!-- <text class="text-xl text-white font-semibold ">{{ $t(`dashboard.text1`) }}</text> -->
+      <text class="text-xl text-white font-semibold ">{{ $t(`dashboard.text1`) }}</text>
       <u-tabs :list="tabList" :activeStyle="{
     color: '#FFFFFFFF',
   }" lineColor="#FFFFFFFF" :inactiveStyle="{

@@ -31,7 +31,7 @@
         <view class="flex-grow-1 mt-auto flex">
           <button @click="toNext"
             class="rounded-3xl bg-[#EE2737FF] h-10 w-full text-[#0C0C0C] text-base flex items-center justify-center">{{
-              t('login.login') }}</button>
+      t('login.login') }}</button>
         </view>
       </view>
     </view>
@@ -52,8 +52,8 @@ const store = useUserInfo()
 
 
 const loginData = ref({
-  username: 'admin', // 用户名
-  password: 'club.2023!!!', // 密码
+  username: '', // 用户名
+  password: '', // 密码
   code: '', // 验证码
   randomStr: '', // 验证码随机数 
 })
