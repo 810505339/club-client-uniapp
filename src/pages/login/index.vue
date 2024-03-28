@@ -74,7 +74,21 @@ function onChangeshowPassword() {
 /* 登录跳转 */
 async function toNext() {
 
+  if (!loginData.value.username) {
+    uni.showToast({
+      title: '请输入用户名',
+      icon: 'none'
+    })
+    return
+  }
 
+  if (!loginData.value.password) {
+    uni.showToast({
+      title: '请输入密码',
+      icon: 'none'
+    })
+    return
+  }
   store.handleLogin(loginData.value)
   // uni.switchTab({
   //   url: '/pages/home/index'

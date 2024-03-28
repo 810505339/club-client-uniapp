@@ -159,7 +159,7 @@ function intercept() {
 
 
 
-
+			console.log(res, 'res')
 			if (!res?.data?.success) {
 				uni.showToast({
 					title: res.data.msg,

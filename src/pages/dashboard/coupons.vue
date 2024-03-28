@@ -29,7 +29,7 @@
                   <view class="flex flex-row items-center  justify-between mt-2">
                     <text class="text-xs opacity-50  min-w-16 font-light">{{ t('dashboard.coupons.text6') }}</text>
                     <button @click="handleClick(item)"
-                      class="rounded-3xl bg-[#EE2737FF] m-0 h-10   text-[ #000000]  text-base flex items-center justify-center font-semibold">{{
+                      class="rounded-3xl bg-[#EE2737FF] m-0 h-10 w-[64px]   text-[ #000000]  text-base flex items-center justify-center font-semibold">{{
     t('dashboard.refund.btn1') }}</button>
                   </view>
 

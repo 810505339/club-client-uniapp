@@ -34,7 +34,7 @@ const store = usePopup()
 async function confirm() {
 
   await uni.clearStorageSync()
-  uni.navigateTo({
+  uni.reLaunch({
     url: "/pages/login/index"
   })
 }
